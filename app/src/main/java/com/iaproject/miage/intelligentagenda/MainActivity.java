@@ -34,13 +34,13 @@ public class MainActivity extends AppCompatActivity {
         final TextView textViewSignin = (TextView) findViewById(R.id.textViewSignin);
         firebaseAuth = FirebaseAuth.getInstance();
 
-       if (firebaseAuth.getCurrentUser() == null) {
+      /* if (firebaseAuth.getCurrentUser() == null) {
 
            finish();
            startActivity(new Intent(getApplicationContext(), Profile.class));
 
            //dfgbh
-       }
+       }*/
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
