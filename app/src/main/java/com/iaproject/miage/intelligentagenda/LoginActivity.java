@@ -26,17 +26,17 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
+
         final ProgressDialog progressDialog = new ProgressDialog(this);
         final Button buttonSignin = (Button) findViewById(R.id.buttonSignin);
         final EditText editTextMail = (EditText) findViewById(R.id.editTextEmail);
         final EditText editTextPasword = (EditText) findViewById(R.id.editTextPassword);
         final TextView textViewSignup = (TextView) findViewById(R.id.textViewSignup);
         firebaseAuth = FirebaseAuth.getInstance();
+
+
         if(firebaseAuth.getCurrentUser()==null){
-
-
-
             //dfgbh
         }
 
@@ -75,14 +75,14 @@ public class LoginActivity extends AppCompatActivity {
                 progressDialog.setCancelable(true);
 
                 firebaseAuth.signInWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        .addOnCompleteListener(LoginActivity.this,new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressDialog.dismiss();
                                 if (task.isSuccessful()) {
                                     Toast.makeText(getApplicationContext(), "Bravo", Toast.LENGTH_SHORT).show();
-                                   /* finish();
-                                    startActivity(new Intent(getApplicationContext(),Profile.class));*/
+                                   finish();
+                                    startActivity(new Intent(getApplicationContext(),Profile.class));
 
                                 } else {
                                     Toast.makeText(getApplicationContext(), "Connection failed ", Toast.LENGTH_SHORT).show();
