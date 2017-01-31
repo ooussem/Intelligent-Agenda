@@ -17,7 +17,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
 
     public FirebaseAuth firebaseAuth;
@@ -28,32 +28,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final ProgressDialog progressDialog = new ProgressDialog(this);
-        final Button buttonRegister = (Button) findViewById(R.id.buttonRegister);
+        final Button buttonSignin = (Button) findViewById(R.id.buttonSignin);
         final EditText editTextMail = (EditText) findViewById(R.id.editTextEmail);
         final EditText editTextPasword = (EditText) findViewById(R.id.editTextPassword);
-        final TextView textViewSignin = (TextView) findViewById(R.id.textViewSignin);
+        final TextView textViewSignup = (TextView) findViewById(R.id.textViewSignup);
         firebaseAuth = FirebaseAuth.getInstance();
+        if(firebaseAuth.getCurrentUser()==null){
 
-       if (firebaseAuth.getCurrentUser() == null) {
 
-           finish();
-           startActivity(new Intent(getApplicationContext(), Profile.class));
 
-           //dfgbh
-       }
+            //dfgbh
+        }
 
-        buttonRegister.setOnClickListener(new View.OnClickListener() {
+
+        buttonSignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (view == buttonRegister) {
-                    registerUser();
+                if (view == buttonSignin) {
+                    UserLogin();
                 }
 
 
             }
 
+            private void UserLogin() {
 
-            private void registerUser() {
                 String email = editTextMail.getText().toString().trim();
                 String password = editTextPasword.getText().toString().trim();
 
@@ -70,37 +69,36 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Veuillez rentrer votre mot de passe SVP", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                progressDialog.setMessage("Registring user ... ");
+                progressDialog.setMessage("Please wait ... ");
                 progressDialog.show();
 
                 progressDialog.setCancelable(true);
 
-                firebaseAuth.createUserWithEmailAndPassword(email, password)
+                firebaseAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressDialog.dismiss();
                                 if (task.isSuccessful()) {
-                                    finish();
-                                    startActivity(new Intent(getApplicationContext(), Profile.class));
-                                    // Toast.makeText(MainActivity.this, "Registred Succesfully", Toast.LENGTH_SHORT).show();
-                                } else {
+                                    Toast.makeText(getApplicationContext(), "Bravo", Toast.LENGTH_SHORT).show();
+                                   /* finish();
+                                    startActivity(new Intent(getApplicationContext(),Profile.class));*/
 
-                                    Toast.makeText(MainActivity.this, "Could not registred ... Please Try again ", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Connection failed ", Toast.LENGTH_SHORT).show();
+
+
                                 }
                             }
                         });
             }
         });
-        textViewSignin.setOnClickListener(new View.OnClickListener() {
+
+
+        textViewSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-
-                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-
-
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
             }
         });
 

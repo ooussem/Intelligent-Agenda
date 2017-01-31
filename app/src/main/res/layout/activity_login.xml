@@ -33,18 +33,18 @@
             android:hint="veuillez rentrer cotre password"/>
 
         <Button
-            android:text="Register User"
+            android:text="Sign in"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/buttonRegister"
+            android:id="@+id/buttonSignin"
             android:layout_margin="15dp"/>
 
         <TextView
             android:textAlignment="center"
-            android:text="Already Registred , Sign in here !"
+            android:text="Don't have acount ! Signup here "
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textViewSignin" />
+            android:id="@+id/textViewSignup" />
 
 
     </LinearLayout>
