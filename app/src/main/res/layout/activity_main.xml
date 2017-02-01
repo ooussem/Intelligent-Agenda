@@ -47,6 +47,13 @@
             android:layout_height="wrap_content"
             android:id="@+id/textViewSignin" />
 
+        <TextView
+            android:text="mot de passe oublié"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewmdp" />
+
 
     </LinearLayout>
 

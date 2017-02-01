@@ -33,12 +33,20 @@ public class LoginActivity extends AppCompatActivity {
         final EditText editTextMail = (EditText) findViewById(R.id.editTextEmail);
         final EditText editTextPasword = (EditText) findViewById(R.id.editTextPassword);
         final TextView textViewSignup = (TextView) findViewById(R.id.textViewSignup);
+        final TextView textViewmdpOublie=(TextView) findViewById(R.id.textViewmdp);
         firebaseAuth = FirebaseAuth.getInstance();
 
 
-        if(firebaseAuth.getCurrentUser()==null){
+        /*if(firebaseAuth.getCurrentUser()==null){
             //dfgbh
-        }
+        }*/
+        textViewmdpOublie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),ResetPasswordActivity.class));
+
+            }
+        });
 
 
         buttonSignin.setOnClickListener(new View.OnClickListener() {

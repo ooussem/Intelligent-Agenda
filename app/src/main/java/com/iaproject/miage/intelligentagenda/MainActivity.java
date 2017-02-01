@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         final TextView textViewSignin = (TextView) findViewById(R.id.textViewSignin);
 
 
+
         firebaseAuth = FirebaseAuth.getInstance();
 
 
@@ -43,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
             //dfgbh
 
         }*/
+
+
+
 
 
 
