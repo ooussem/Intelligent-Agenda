@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressDialog.dismiss();
                                 if (task.isSuccessful()) {
-                                    finish();
+
                                     startActivity(new Intent(getApplicationContext(), Profile.class));
                                      Toast.makeText(MainActivity.this, "Registred Succesfully", Toast.LENGTH_SHORT).show();
                                 } else {

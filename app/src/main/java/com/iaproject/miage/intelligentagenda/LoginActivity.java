@@ -81,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
                                 progressDialog.dismiss();
                                 if (task.isSuccessful()) {
                                     Toast.makeText(getApplicationContext(), "Bravo", Toast.LENGTH_SHORT).show();
-                                   finish();
+                                   //finish();
                                     startActivity(new Intent(getApplicationContext(),Profile.class));
 
                                 } else {
