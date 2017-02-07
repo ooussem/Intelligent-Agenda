@@ -1,7 +1,9 @@
 package com.iaproject.miage.intelligentagenda;
 
-import android.os.Bundle;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -19,6 +21,7 @@ public class Profile extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
 
+
         firebaseAuth = FirebaseAuth.getInstance();
        /* if(firebaseAuth.getCurrentUser()==null){
 
@@ -28,12 +31,22 @@ public class Profile extends AppCompatActivity {
             //dfgbh
         }*/
 
-        FirebaseUser user = firebaseAuth.getCurrentUser();
+        FirebaseUser user=firebaseAuth.getCurrentUser();
 
 
-        TextView TextViewEmail = (TextView) findViewById(R.id.textViewProfile);
-        Button buttonLogout = (Button) findViewById(R.id.buttonLogout);
+        TextView TextViewEmail=(TextView) findViewById(R.id.textViewProfile);
+        Button buttonLogout=(Button) findViewById(R.id.buttonLogout);
 
-        TextViewEmail.setText("Bonjour " + user.getEmail());
+        TextViewEmail.setText("Bonjour "+user.getEmail());
+
+        buttonLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+
+            }
+        });
+
     }
 }
