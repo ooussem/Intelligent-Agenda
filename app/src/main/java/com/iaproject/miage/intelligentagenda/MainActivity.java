@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (view == buttonRegister) {
+                {
                     registerUser();
                 }
             }
