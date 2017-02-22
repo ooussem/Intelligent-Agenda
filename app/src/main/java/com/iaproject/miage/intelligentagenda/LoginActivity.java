@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         textViewmdpOublie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(getApplicationContext(),ResetPasswordActivity.class));
 
             }
         });
