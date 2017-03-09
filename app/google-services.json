@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "5802736985",
+    "firebase_url": "https://intelligent-agenda-3d563.firebaseio.com",
+    "project_id": "intelligent-agenda-3d563",
+    "storage_bucket": "intelligent-agenda-3d563.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5802736985:android:dcbb50de01426cac",
+        "android_client_info": {
+          "package_name": "com.iaproject.miage.intelligentagenda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "5802736985-0najkqp7md0utoj2nlmsl6tr31hc08g3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMdKc0twYJ2JckCTchVKavxL4Z_q7B-0s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
