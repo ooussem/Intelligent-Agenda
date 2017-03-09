@@ -44,5 +44,6 @@ script:
     - chmod +x ./gradlew
     - ./gradlew build
     - ./gradlew connectedAndroidTest coveralls
+    - ./gradlew jacocoTestReport coveralls
 notifications:
     email: false
