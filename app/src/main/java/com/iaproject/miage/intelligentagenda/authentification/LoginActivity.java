@@ -1,4 +1,4 @@
-package com.iaproject.miage.intelligentagenda.signinup;
+package com.iaproject.miage.intelligentagenda.authentification;
 
 import android.content.Intent;
 import android.os.Bundle;
