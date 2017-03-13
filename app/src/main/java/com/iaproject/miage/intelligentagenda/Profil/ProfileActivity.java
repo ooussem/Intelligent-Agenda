@@ -12,7 +12,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.iaproject.miage.intelligentagenda.R;
 import com.iaproject.miage.intelligentagenda.authentification.LoginActivity;
 
-public class Profile extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity {
 
 
     public FirebaseAuth firebaseAuth;

@@ -18,7 +18,7 @@
 
         <activity android:name=".activityday.ActivityDay"/>
         <activity android:name=".authentification.MainActivity" />
-        <activity android:name=".profil.Profile" />
+        <activity android:name=".profil.ProfileActivity" />
         <activity android:name=".authentification.ResetPasswordActivity"></activity>
 
 

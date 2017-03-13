@@ -14,25 +14,32 @@ public class Event implements Comparable<Event>{
 	public GregorianCalendar dateStart;
 	public GregorianCalendar dateEnd;
 	public String place;
+	public String transport;
 	public boolean isDateStartStrongness;
 	public boolean isDateEndStrongness;
+	public Interlocutor interlocutor;
 
 
 
-	public Event(String title, String place, GregorianCalendar dateStart, GregorianCalendar dateEnd, String description)
+	public Event(String title, String place, GregorianCalendar dateStart, GregorianCalendar dateEnd, String description,
+	             boolean isDateStartStrongness, boolean isDateEndStrongness, String transport)
 			throws AddEventException {
 		this.title = title;
 		this.place = place;
 		this.description = description;
+		this.transport = transport;
 		if(dateStart.before(dateEnd)){
 			this.dateStart = dateStart;
 			this.dateEnd = dateEnd;
-			this.isDateEndStrongness = true;
-			this.isDateStartStrongness = true;
+			this.isDateEndStrongness = isDateStartStrongness;
+			this.isDateStartStrongness = isDateEndStrongness;
 		}
 		else
 			throw new AddEventException();
 	}
+
+
+
 
 	@Override
 	public int compareTo(Event event) {

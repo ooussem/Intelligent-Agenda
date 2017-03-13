@@ -73,14 +73,14 @@ public class AgendaTest {
 		e8Start = new GregorianCalendar(2017, 5, 15, 13, 30);
 		e8End = new GregorianCalendar(2017, 5, 15, 14, 45);
 
-		e1 = new Event("Evenement 1","Nanterre",e1Start,e1End, "Rendez vous pour un entretien 1");
-		e2 = new Event("Evenement 2","Nanterre",e2Start,e2End, "Rendez vous pour un entretien 2");
-		e3 = new Event("Evenement 3","Nanterre",e3Start,e3End, "Rendez vous pour un entretien 3");
-		e4 = new Event("Evenement 4","Nanterre",e4Start,e4End, "Rendez vous pour un entretien 4");
-		e5 = new Event("Evenement 5","Nanterre",e5Start,e5End, "Rendez vous pour un entretien 5");
-		e6 = new Event("Evenement 6","Nanterre",e6Start,e6End, "Rendez vous pour un entretien 6");
-		e7 = new Event("Evenement 7","Nanterre",e7Start,e7End, "Rendez vous pour un entretien 7");
-		e8 = new Event("Evenement 8","Nanterre",e8Start,e8End, "Rendez vous pour un entretien 8");
+		e1 = new Event("Evenement 1","Nanterre",e1Start,e1End, "Rendez vous pour un entretien 1",true,true,"Nanterre");
+		e2 = new Event("Evenement 2","Nanterre",e2Start,e2End, "Rendez vous pour un entretien 2",true,true,"Nanterre");
+		e3 = new Event("Evenement 3","Nanterre",e3Start,e3End, "Rendez vous pour un entretien 3",true,true,"Nanterre");
+		e4 = new Event("Evenement 4","Nanterre",e4Start,e4End, "Rendez vous pour un entretien 4",true,true,"Nanterre");
+		e5 = new Event("Evenement 5","Nanterre",e5Start,e5End, "Rendez vous pour un entretien 5",true,true,"Nanterre");
+		e6 = new Event("Evenement 6","Nanterre",e6Start,e6End, "Rendez vous pour un entretien 6",true,true,"Nanterre");
+		e7 = new Event("Evenement 7","Nanterre",e7Start,e7End, "Rendez vous pour un entretien 7",true,true,"Nanterre");
+		e8 = new Event("Evenement 8","Nanterre",e8Start,e8End, "Rendez vous pour un entretien 8",true,true,"Nanterre");
 		e1.isDateStartStrongness = false;
 		e5.isDateEndStrongness=false;
 		e6.isDateStartStrongness = false;

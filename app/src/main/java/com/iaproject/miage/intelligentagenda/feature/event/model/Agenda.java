@@ -1,9 +1,11 @@
 package com.iaproject.miage.intelligentagenda.feature.event.model;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 
 
 /**
@@ -12,12 +14,20 @@ import java.util.List;
 
 public class Agenda {
 	public String titleAgenda;
-	public List<Event> listEvent;
+	public String basePlace;
 
-	public Agenda(String titleAgenda){
+
+	public List<Event> listEvent;
+	public Map<Calendar, List<Traject>> courses;
+
+
+	public Agenda(String titleAgenda,String basePlace){
 		this.titleAgenda = titleAgenda;
 		this.listEvent = new ArrayList<>();
+		this.basePlace = basePlace;
+		courses = new HashMap<>();
 	}
+
 
 	/**
 	 * Permet d'ajouter un évenement dans la liste
@@ -31,6 +41,21 @@ public class Agenda {
 			else if (!checkOverlapEvent(event)) {
 				result = this.listEvent.add(event);
 				Collections.sort(listEvent);
+
+				/*  Quand j'ajoute un nouvel évenemnt il faut que j'ajoutte un nouveau trajet
+					Comment savoir si j'ai un seul trajet ou un parcours
+					On se base sur le fait que une journée = un parours
+					Un parcours possède 1 ou plusieurs trajets
+					Un trajet est caractérisé par 2 lieux, une distance, un mode de transport et un temps
+					On identifie un parcours par le début de sa date yyyyMMdd.
+
+					Je cherche le jours yyyyMMdd
+					S'il y a déjà un évenement à cette date
+							alors j'ajoute un trajet au parcours
+				        sinon
+				            J'instancie un nouveau parcours avec comme clé la date
+				            J'ajoute le trajet à ce parcours
+				 */
 			}
 		}
 		catch (Exception exp){
@@ -79,7 +104,6 @@ public class Agenda {
 				return false;
 			else if(otherEvent.dateStart.after(nextEvent.dateEnd)){
 				result = false;
-				previousEvent = nextEvent;
 				continue;
 			}
 
@@ -103,10 +127,13 @@ public class Agenda {
 							!nextEvent.isDateStartStrongness && !previousEvent.isDateEndStrongness)
 						result = false;
 				}
+			previousEvent = nextEvent;
 		}
 
 		return result;
 	}
+
+
 
 
 }
