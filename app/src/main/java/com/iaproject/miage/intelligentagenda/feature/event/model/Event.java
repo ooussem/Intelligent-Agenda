@@ -1,40 +1,77 @@
 package com.iaproject.miage.intelligentagenda.feature.event.model;
 
+
+import com.google.firebase.database.Exclude;
 import com.iaproject.miage.intelligentagenda.exception.AddEventException;
 
-import java.util.Calendar;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
-/**
- * Created by OOussema on 25/02/2017.
- */
+public class Event implements Comparable<Event>{
 
-public class Event implements Comparable<Event> {
 	public String title;
 	public String description;
-
-	public Calendar dateStart;
-	public Calendar dateEnd;
+	@Exclude
+	public GregorianCalendar dateStart;
+	@Exclude
+	public GregorianCalendar dateEnd;
 	public String place;
-	public String transport;
-	public boolean isDateStartStrongness;
-	public boolean isDateEndStrongness;
+	public boolean isDateStartStrongness=true;
+	public boolean isDateEndStrongness=true;
+	public String startDate;
+	public String endDate;
+	@Exclude
+	public SimpleDateFormat sdf;
 	public Interlocutor interlocutor;
 
 
 
-	public Event(String title, String place, Calendar dateStart, Calendar dateEnd, String description,
-	             boolean isDateStartStrongness, boolean isDateEndStrongness, String transport, Interlocutor interlocutor)
-			throws AddEventException {
+//	public Event(String title, String place, Calendar dateStart, Calendar dateEnd, String description,
+//	             boolean isDateStartStrongness, boolean isDateEndStrongness, String transport, Interlocutor interlocutor)
+//		throws AddEventException {
+//		this.title = title;
+//		this.place = place;
+//		this.description = description;
+//		this.transport = transport;
+//		this.interlocutor = interlocutor;
+//		if(dateStart.before(dateEnd)){
+//			this.dateStart = dateStart;
+//			this.dateEnd = dateEnd;
+//			this.isDateEndStrongness = true;
+//			this.isDateStartStrongness = true;
+//			sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.FRANCE);
+//			startDate= sdf.format(dateStart.getTime());
+//			endDate= sdf.format(dateEnd.getTime());
+//		}
+//		else
+//			throw new AddEventException();
+//	}
+
+
+	public Event(String title, String place, String startDate, String endDate, String description,
+	             Boolean isDateStartStrongness,Boolean isDateEndStrongness )
+			throws AddEventException, ParseException {
+
 		this.title = title;
 		this.place = place;
 		this.description = description;
-		this.transport = transport;
-		this.interlocutor = interlocutor;
+		sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+		this.startDate = startDate;
+		this.endDate = endDate;
+		Date dd = sdf.parse(startDate);
+		Date de = sdf.parse(startDate);
+		this.dateStart=new GregorianCalendar();
+		this.dateEnd=new GregorianCalendar();
+		this.dateStart.setTime(dd);
+		this.dateEnd.setTime(de);
+		this.isDateEndStrongness = true;
+		this.isDateStartStrongness = true;
 		if(dateStart.before(dateEnd)){
-			this.dateStart = dateStart;
-			this.dateEnd = dateEnd;
-			this.isDateEndStrongness = isDateStartStrongness;
-			this.isDateStartStrongness = isDateEndStrongness;
+			this.isDateEndStrongness = true;
+			this.isDateStartStrongness = true;
+
 		}
 		else
 			throw new AddEventException();
@@ -47,18 +84,16 @@ public class Event implements Comparable<Event> {
 	}
 
 
-	@Override
 	public boolean equals(Object obj) {
 		Event event = (Event) obj;
-
 		if(event == this) return true;
-
 		if(this.dateStart.compareTo(event.dateStart)==0 &&
 				this.dateEnd.compareTo(event.dateEnd)==0) return true;
-
 		else
 			return false;
+
 	}
 
-
 }
+
+
