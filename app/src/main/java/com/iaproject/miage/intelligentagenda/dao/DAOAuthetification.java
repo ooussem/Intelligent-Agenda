@@ -1,11 +1,10 @@
 package com.iaproject.miage.intelligentagenda.dao;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.widget.Toast;
-import com.iaproject.miage.intelligentagenda.profil.*;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -47,7 +46,7 @@ public class DAOAuthetification {
                         if (task.isSuccessful()) {
                            Toast.makeText(myActivity.getApplicationContext(), "Bravo", Toast.LENGTH_SHORT).show();
                             //finish();
-                            myActivity.startActivity(new Intent(myActivity.getApplicationContext(), ProfileActivity.class));
+
                         } else {
                            Toast.makeText(myActivity.getApplicationContext(), "Connection failed ", Toast.LENGTH_SHORT).show();
 
@@ -78,7 +77,7 @@ public class DAOAuthetification {
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (task.isSuccessful()) {
-                            myActivity.startActivity(new Intent(myActivity.getApplicationContext(), ProfileActivity.class));
+                            //myActivity.startActivity(new Intent(myActivity.getApplicationContext(), ProfileActivity.class));
                             Toast.makeText(myActivity.getApplicationContext(), "Registred successful", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(myActivity.getApplicationContext(), "Could not registred ... Please Try again ", Toast.LENGTH_SHORT).show();
@@ -111,6 +110,8 @@ public class DAOAuthetification {
                 });
 
     }
+
+    
 
 
 

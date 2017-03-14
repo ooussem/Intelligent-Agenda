@@ -1,4 +1,4 @@
-package com.iaproject.miage.intelligentagenda.authentification;
+package com.iaproject.miage.intelligentagenda.activity.authentification;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,14 +11,15 @@ import android.widget.TextView;
 import com.iaproject.miage.intelligentagenda.R;
 import com.iaproject.miage.intelligentagenda.dao.DAOAuthetification;
 
-public class MainActivity extends AppCompatActivity {
-
+public class SignUpActivity extends AppCompatActivity {
+    Button buttonRegister;
     DAOAuthetification daoAuthetification = new DAOAuthetification(this);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final Button buttonRegister = (Button) findViewById(R.id.buttonRegister);
+        buttonRegister = (Button) findViewById(R.id.buttonRegister);
         final EditText editTextMail = (EditText) findViewById(R.id.editTextEmail);
         final EditText editTextPasword = (EditText) findViewById(R.id.editTextPassword);
         final TextView textViewSignin = (TextView) findViewById(R.id.textViewSignin);
@@ -27,18 +28,17 @@ public class MainActivity extends AppCompatActivity {
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 String email = editTextMail.getText().toString().trim();
                 String password = editTextPasword.getText().toString().trim();
-                  daoAuthetification.registerUser(email,password);
-                }
-
+                daoAuthetification.registerUser(email,password);
+            }
         });
+
 
         textViewSignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,LoginActivity.class));
+                startActivity(new Intent(SignUpActivity.this,LoginActivity.class));
             }
         });
 

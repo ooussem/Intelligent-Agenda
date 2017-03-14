@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.iaproject.miage.intelligentagenda.R;
-import com.iaproject.miage.intelligentagenda.authentification.LoginActivity;
+import com.iaproject.miage.intelligentagenda.activity.authentification.LoginActivity;
 
 public class ProfileActivity extends AppCompatActivity {
 

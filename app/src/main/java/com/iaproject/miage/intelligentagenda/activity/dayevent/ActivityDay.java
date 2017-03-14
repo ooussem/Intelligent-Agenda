@@ -1,4 +1,4 @@
-package com.iaproject.miage.intelligentagenda.activityday;
+package com.iaproject.miage.intelligentagenda.activity.dayevent;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

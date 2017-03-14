@@ -2,17 +2,18 @@ package com.iaproject.miage.intelligentagenda.feature.event.model;
 
 import com.iaproject.miage.intelligentagenda.exception.AddEventException;
 
-import java.util.GregorianCalendar;
+import java.util.Calendar;
 
 /**
  * Created by OOussema on 25/02/2017.
  */
 
-public class Event implements Comparable<Event>{
+public class Event implements Comparable<Event> {
 	public String title;
 	public String description;
-	public GregorianCalendar dateStart;
-	public GregorianCalendar dateEnd;
+
+	public Calendar dateStart;
+	public Calendar dateEnd;
 	public String place;
 	public String transport;
 	public boolean isDateStartStrongness;
@@ -21,13 +22,14 @@ public class Event implements Comparable<Event>{
 
 
 
-	public Event(String title, String place, GregorianCalendar dateStart, GregorianCalendar dateEnd, String description,
-	             boolean isDateStartStrongness, boolean isDateEndStrongness, String transport)
+	public Event(String title, String place, Calendar dateStart, Calendar dateEnd, String description,
+	             boolean isDateStartStrongness, boolean isDateEndStrongness, String transport, Interlocutor interlocutor)
 			throws AddEventException {
 		this.title = title;
 		this.place = place;
 		this.description = description;
 		this.transport = transport;
+		this.interlocutor = interlocutor;
 		if(dateStart.before(dateEnd)){
 			this.dateStart = dateStart;
 			this.dateEnd = dateEnd;
@@ -39,12 +41,11 @@ public class Event implements Comparable<Event>{
 	}
 
 
-
-
 	@Override
 	public int compareTo(Event event) {
 		return this.dateStart.compareTo(event.dateStart);
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -57,6 +58,7 @@ public class Event implements Comparable<Event>{
 
 		else
 			return false;
-
 	}
+
+
 }
