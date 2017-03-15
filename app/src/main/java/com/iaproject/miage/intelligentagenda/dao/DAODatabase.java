@@ -16,26 +16,18 @@ public class DAODatabase {
     final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
     final DatabaseReference databaseReference = database.getReference();
+	FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-
-    public final void addEvent(Event event, Agenda agenda) {
-
-
-        FirebaseUser user=firebaseAuth.getCurrentUser();
-        String key = databaseReference.child("event").push().getKey();
+	public final void addEvent(Agenda agenda, Event event) {
+        String key = databaseReference.child(user.getUid()).push().getKey();
         databaseReference.child(user.getUid()).child(agenda.titleAgenda).child("event").child(key).setValue(event);
         agenda.addEvent(event);
-
-
     }
 
-
     public final void deleteEvent() {
-
         String key = databaseReference.child("event").push().getKey();
         // FirebaseUser user=firebaseAuth.getCurrentUser();
         databaseReference.child(key).removeValue();
-
-
     }
+
 }

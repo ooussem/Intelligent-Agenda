@@ -48,8 +48,7 @@ public class LoginActivity extends AppCompatActivity {
                 String password = editTextPasword.getText().toString().trim();
                 String idUser = null;
                 daoAuthetification.userLogin(email,password);
-
-                startActivity(context,idUser);
+                startActivity(new Intent(getApplicationContext(),ActivityDay.class));
             }
         });
 
@@ -63,13 +62,5 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-
-
-
-    public static synchronized void startActivity (Context context, String parameter) {
-        Intent intentActivityDay = new Intent(context, ActivityDay.class); // extras
-        intentActivityDay.putExtra(KEY_PARAM1, parameter);
-        context.startActivity(intentActivityDay);
-    }
 }
 

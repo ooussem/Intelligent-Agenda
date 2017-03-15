@@ -15,7 +15,6 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
-import com.google.firebase.database.DatabaseReference;
 import com.iaproject.miage.intelligentagenda.R;
 import com.iaproject.miage.intelligentagenda.dao.DAODatabase;
 import com.iaproject.miage.intelligentagenda.exception.AddEventException;
@@ -32,25 +31,30 @@ import static com.iaproject.miage.intelligentagenda.R.layout.dialog;
 
 
 public class ActivityDay extends AppCompatActivity {
-	DAODatabase DAODatabase;
-	DatabaseReference dref;
-	private Agenda agenda=new Agenda("programme","Nanterre");
+	DAODatabase daoDatabase;
+	Agenda agenda;
 
 	ImageButton buttonAdd;
 	Event event;
 	SimpleAdapter sa = null;
-	List<HashMap<String, Object>> list = null;
-	HashMap<String, Object> map = null;
+	List<HashMap<String,Object>> list = null;
+	HashMap<String,Object> map = null;
 	ListView lv = null;
 	static int i = 0;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_day);
+		daoDatabase = new DAODatabase();
 
+
+		agenda = new Agenda("programme","Nanterre");
 		list = new ArrayList<>();
+
 		String[] from = new String[]{"titre", "description"};
 		int[] to = new int[]{R.id.activity_title_event, R.id.activity_title_descip};
+
 		sa = new SimpleAdapter(this, list, R.layout.list_event, from, to);
 		lv = (ListView) findViewById(R.id.listView);
 		lv.setAdapter(sa);
@@ -58,7 +62,6 @@ public class ActivityDay extends AppCompatActivity {
 		buttonAdd = (ImageButton) findViewById(R.id.activity_day_button_add);
 		buttonAdd.setOnClickListener(new View.OnClickListener() {
 			@Override
-
 			public void onClick(View v) {
 				final View view = LayoutInflater.from(ActivityDay.this).inflate(dialog, null);
 				AlertDialog.Builder Builder = new AlertDialog.Builder(ActivityDay.this);
@@ -68,18 +71,15 @@ public class ActivityDay extends AppCompatActivity {
 							@Override
 							public void onClick(DialogInterface dialogInterface, int wich) {
 								// operation à effectuées
-
 								EditText descrip = (EditText)view.findViewById(R.id.editTextDescription);
 								EditText tit = (EditText)view.findViewById(R.id.editTextTitle);
 								EditText pla = (EditText)view.findViewById(R.id.editTextPlace);
 								EditText start = (EditText)view.findViewById(R.id.editTextStart);
-								EditText  end = (EditText)view.findViewById(R.id.editTextEnd);
+								EditText end = (EditText)view.findViewById(R.id.editTextEnd);
 								CheckBox dForte=(CheckBox) view.findViewById(R.id.checkBoxStart);
 								CheckBox fForte=(CheckBox) view.findViewById(R.id.checkBoxeEnd);
 								boolean isDateStartStrongness=true;
 								boolean isDateEndStrongness=true;
-
-
 
 								if(dForte.isChecked()){
 									isDateStartStrongness=false;
@@ -88,29 +88,28 @@ public class ActivityDay extends AppCompatActivity {
 									isDateEndStrongness=false;
 								}
 
-							/*	SimpleDateFormat sdf = new SimpleDateFormat("dd MM yyyy hh:mm");
-								Date date1 ;
-								Date date2 ;
-								GregorianCalendar cal = new GregorianCalendar();
-								GregorianCalendar cal2 = new GregorianCalendar();
-								date1 = sdf.parse(start.getText().toString(),new ParsePosition(0));
-								date2 = sdf.parse(end.getText().toString(),new ParsePosition(0));
-								cal.setTime(date1);
-								cal2.setTime(date2);*/
+//								SimpleDateFormat sdf = new SimpleDateFormat("dd MM yyyy hh:mm");
+//								Date date1 ;
+//								Date date2 ;
+//								GregorianCalendar cal = new GregorianCalendar();
+//								GregorianCalendar cal2 = new GregorianCalendar();
+//								date1 = sdf.parse(start.getText().toString(),new ParsePosition(0));
+//								date2 = sdf.parse(end.getText().toString(),new ParsePosition(0));
+//								cal.setTime(date1);
+//								cal2.setTime(date2);
 
 
 								try {
-									event = new Event(tit.getText().toString(), pla.getText().toString(),start.getText().toString(),end.getText().toString(), descrip.getText().toString(),isDateStartStrongness,isDateEndStrongness);
+									event = new Event(tit.getText().toString(), pla.getText().toString(),
+											start.getText().toString(),end.getText().toString(),
+											descrip.getText().toString(),isDateStartStrongness,isDateEndStrongness);
 								} catch (AddEventException e) {
 									e.printStackTrace();
 								} catch (ParseException e) {
 									e.printStackTrace();
 								}
 								agenda.addEvent(event);
-										DAODatabase =new DAODatabase();
-										DAODatabase.addEvent(event,agenda);
-
-
+								daoDatabase.addEvent(agenda,event);
 
 								Toast.makeText(getApplicationContext(),tit.getText().toString(), Toast.LENGTH_SHORT).show();
 
@@ -120,10 +119,7 @@ public class ActivityDay extends AppCompatActivity {
 								list.add(map);
 								sa.notifyDataSetChanged();
 								lv.setAdapter(sa);
-
-
 							}
-
 						})
 						.setNegativeButton("quitter", null)
 						.setCancelable(false);
@@ -144,12 +140,11 @@ public class ActivityDay extends AppCompatActivity {
 			}
 
 		});
+
 		lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
 			@Override
-
 			public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-// sans code
+			// sans code
 
 			}
 

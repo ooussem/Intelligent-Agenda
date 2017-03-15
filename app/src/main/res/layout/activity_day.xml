@@ -6,7 +6,7 @@
     android:id="@+id/activity_day"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@color/colorPrimaryDark2"
     tools:context=".activity.dayevent.ActivityDay">
 
 
@@ -38,8 +38,8 @@
         android:id="@+id/linearLayout">
 
         <ListView
-            android:layout_width="238dp"
-            android:layout_height="521dp"
+            android:layout_width="match_parent"
+            android:layout_height="445dp"
             android:id="@+id/listView" />
 
     </LinearLayout>
