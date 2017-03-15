@@ -57,11 +57,11 @@ public class Event implements Comparable<Event>{
 		this.title = title;
 		this.place = place;
 		this.description = description;
-		sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+		sdf = new SimpleDateFormat("dd MM yyyy HH:mm");
 		this.startDate = startDate;
 		this.endDate = endDate;
 		Date dd = sdf.parse(startDate);
-		Date de = sdf.parse(startDate);
+		Date de = sdf.parse(endDate);
 		this.dateStart=new GregorianCalendar();
 		this.dateEnd=new GregorianCalendar();
 		this.dateStart.setTime(dd);

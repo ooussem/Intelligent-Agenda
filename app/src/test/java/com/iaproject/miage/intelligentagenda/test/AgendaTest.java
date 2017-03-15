@@ -11,7 +11,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
@@ -53,29 +52,29 @@ public class AgendaTest {
 		agenda = new Agenda("My agenda", "Nanterre");
 		interlocutor = new Interlocutor("Zak", "02020202");
 
-		e1Start = new GregorianCalendar(2017, 2, 13, 14, 00);
-		e1End = new GregorianCalendar(2017, 2, 13, 15, 00);
-
-		e2Start = new GregorianCalendar(2017, 2, 14, 9, 00);
-		e2End = new GregorianCalendar(2017, 2, 14, 12, 00);
-
-		e3Start = new GregorianCalendar(2017, 4, 14, 13, 00);
-		e3End = new GregorianCalendar(2017, 4, 14, 14, 00);
-
-		e4Start = new GregorianCalendar(2017, 2, 15, 9, 00);
-		e4End = new GregorianCalendar(2017, 2, 15, 12, 00);
-
-		e5Start = new GregorianCalendar(2017, 5, 15, 9, 00);
-		e5End = new GregorianCalendar(2017, 5, 15, 12, 00);
-
-		e6Start = new GregorianCalendar(2017, 5, 15, 14, 30);
-		e6End = new GregorianCalendar(2017, 5, 15, 15, 00);
-
-		e7Start = new GregorianCalendar(2017, 2, 13, 12, 30);
-		e7End = new GregorianCalendar(2017, 2, 13, 14, 15);
-
-		e8Start = new GregorianCalendar(2017, 5, 15, 13, 30);
-		e8End = new GregorianCalendar(2017, 5, 15, 14, 45);
+//		e1Start = new GregorianCalendar(2017, 2, 13, 14, 00);
+//		e1End = new GregorianCalendar(2017, 2, 13, 15, 00);
+//
+//		e2Start = new GregorianCalendar(2017, 2, 14, 9, 00);
+//		e2End = new GregorianCalendar(2017, 2, 14, 12, 00);
+//
+//		e3Start = new GregorianCalendar(2017, 4, 14, 13, 00);
+//		e3End = new GregorianCalendar(2017, 4, 14, 14, 00);
+//
+//		e4Start = new GregorianCalendar(2017, 2, 15, 9, 00);
+//		e4End = new GregorianCalendar(2017, 2, 15, 12, 00);
+//
+//		e5Start = new GregorianCalendar(2017, 5, 15, 9, 00);
+//		e5End = new GregorianCalendar(2017, 5, 15, 12, 00);
+//
+//		e6Start = new GregorianCalendar(2017, 5, 15, 14, 30);
+//		e6End = new GregorianCalendar(2017, 5, 15, 15, 00);
+//
+//		e7Start = new GregorianCalendar(2017, 2, 13, 12, 30);
+//		e7End = new GregorianCalendar(2017, 2, 13, 14, 15);
+//
+//		e8Start = new GregorianCalendar(2017, 5, 15, 13, 30);
+//		e8End = new GregorianCalendar(2017, 5, 15, 14, 45);
 
 		e1 = new Event("Evenement 1","Nanterre","13 02 2017 14:00","13 02 2017 15:00", "Rendez vous pour un entretien 1",true,true);
 		e2 = new Event("Evenement 2","Nanterre","14 02 2017 9:00", "14 02 2017 12:00", "Rendez vous pour un entretien 2",true,true);
@@ -83,7 +82,7 @@ public class AgendaTest {
 		e4 = new Event("Evenement 4","Nanterre","15 02 2017 9:00","15 02 2017 12:00", "Rendez vous pour un entretien 4",true,true);
 		e5 = new Event("Evenement 5","Nanterre","15 05 2017 9:00","15 05 2017 12:00", "Rendez vous pour un entretien 5",true,true);
 		e6 = new Event("Evenement 6","Nanterre","15 05 2017 14:30","15 05 2017 15:00", "Rendez vous pour un entretien 6",true,true);
-		e7 = new Event("Evenement 7","Nanterre","13 02 2017 12:30","13 02 2017 15:15", "Rendez vous pour un entretien 7",true,true);
+		e7 = new Event("Evenement 7","Nanterre","13 02 2017 12:30","13 02 2017 14:15", "Rendez vous pour un entretien 7",true,true);
 		e8 = new Event("Evenement 8","Nanterre","15 05 2017 13:30","15 05 2017 14:45", "Rendez vous pour un entretien 8",true,true);
 		e1.isDateStartStrongness = false;
 		e5.isDateEndStrongness=false;
