@@ -39,7 +39,7 @@ public class ActivityDay extends AppCompatActivity {
 	SimpleAdapter sa = null;
 	List<HashMap<String,Object>> list = null;
 	HashMap<String,Object> map = null;
-	ListView lv = null;
+	ListView listView = null;
 	static int i = 0;
 
 	@Override
@@ -49,15 +49,15 @@ public class ActivityDay extends AppCompatActivity {
 		daoDatabase = new DAODatabase();
 
 
-		agenda = new Agenda("programme","Nanterre");
+		this.agenda = new Agenda("programme","Nanterre");
 		list = new ArrayList<>();
 
 		String[] from = new String[]{"titre", "description"};
 		int[] to = new int[]{R.id.activity_title_event, R.id.activity_title_descip};
 
 		sa = new SimpleAdapter(this, list, R.layout.list_event, from, to);
-		lv = (ListView) findViewById(R.id.listView);
-		lv.setAdapter(sa);
+		listView = (ListView) findViewById(R.id.listView);
+		listView.setAdapter(sa);
 
 		buttonAdd = (ImageButton) findViewById(R.id.activity_day_button_add);
 		buttonAdd.setOnClickListener(new View.OnClickListener() {
@@ -108,8 +108,10 @@ public class ActivityDay extends AppCompatActivity {
 								} catch (ParseException e) {
 									e.printStackTrace();
 								}
+
 								agenda.addEvent(event);
 								daoDatabase.addEvent(agenda,event);
+
 
 								Toast.makeText(getApplicationContext(),tit.getText().toString(), Toast.LENGTH_SHORT).show();
 
@@ -118,7 +120,7 @@ public class ActivityDay extends AppCompatActivity {
 								i++;
 								list.add(map);
 								sa.notifyDataSetChanged();
-								lv.setAdapter(sa);
+								listView.setAdapter(sa);
 							}
 						})
 						.setNegativeButton("quitter", null)
@@ -130,7 +132,7 @@ public class ActivityDay extends AppCompatActivity {
 
 		});
 
-		lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+		listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 			@Override
 			public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
 				list.remove(position);
@@ -141,7 +143,8 @@ public class ActivityDay extends AppCompatActivity {
 
 		});
 
-		lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 			// sans code
@@ -152,4 +155,8 @@ public class ActivityDay extends AppCompatActivity {
 
 	}
 
+	@Override
+	protected void onStart() {
+		super.onStart();
+	}
 }

@@ -51,7 +51,7 @@ public class Event implements Comparable<Event>{
 
 
 	public Event(String title, String place, String startDate, String endDate, String description,
-	             Boolean isDateStartStrongness,Boolean isDateEndStrongness )
+	             Boolean isDateStartStrongness,Boolean isDateEndStrongness)
 			throws AddEventException, ParseException {
 
 		this.title = title;

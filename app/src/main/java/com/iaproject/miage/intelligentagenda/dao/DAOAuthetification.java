@@ -24,16 +24,6 @@ public class DAOAuthetification {
 
 
     public void userLogin(String email,String password) {
-        if (TextUtils.isEmpty(email)) {
-            // email vide
-           Toast.makeText(myActivity.getApplicationContext(), "Veuillez rentrer votre email SVP", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (TextUtils.isEmpty(password)) {
-            //password vide
-           Toast.makeText(myActivity.getApplicationContext(), "Veuillez rentrer votre mot de passe SVP", Toast.LENGTH_SHORT).show();
-            return;
-        }
         firebaseAuth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(myActivity,new OnCompleteListener<AuthResult>() {
                 @Override

@@ -13,14 +13,29 @@ import com.iaproject.miage.intelligentagenda.feature.event.model.Event;
 
 public class DAODatabase {
 
-    final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-    final FirebaseDatabase database = FirebaseDatabase.getInstance();
-    final DatabaseReference databaseReference = database.getReference();
-	FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+	public FirebaseDatabase database;
+	public FirebaseAuth firebaseAuth;
+    public DatabaseReference databaseReference;
+	public FirebaseUser user ;
 
-	public final void addEvent(Agenda agenda, Event event) {
-        String key = databaseReference.child(user.getUid()).push().getKey();
-        databaseReference.child(user.getUid()).child(agenda.titleAgenda).child("event").child(key).setValue(event);
+    public DAODatabase() {
+	    this.database = FirebaseDatabase.getInstance();
+	    this.databaseReference = database.getReference();
+	    this.firebaseAuth = FirebaseAuth.getInstance();
+	    this.user = firebaseAuth.getCurrentUser();
+    }
+
+	public void addUser(){
+		String uid = this.user.getUid();
+		databaseReference.child("users").setValue(uid);
+	}
+
+    public final void addEvent(Agenda agenda, Event event) {
+        String key = databaseReference.child(this.user.getUid()).child(agenda.titleAgenda).child("events").push().getKey();
+//        databaseReference.child(user.getUid()).child(agenda.titleAgenda).child("event").child(key).setValue(event);
+
+	    databaseReference.child("users").child(this.user.getUid()).child(agenda.titleAgenda).child("events")
+			    .child(key).setValue(event);
         agenda.addEvent(event);
     }
 

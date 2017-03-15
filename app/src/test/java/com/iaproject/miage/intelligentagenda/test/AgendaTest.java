@@ -77,14 +77,14 @@ public class AgendaTest {
 		e8Start = new GregorianCalendar(2017, 5, 15, 13, 30);
 		e8End = new GregorianCalendar(2017, 5, 15, 14, 45);
 
-		e1 = new Event("Evenement 1","Nanterre",e1Start,e1End, "Rendez vous pour un entretien 1",true,true,"Nanterre", interlocutor);
-		e2 = new Event("Evenement 2","Nanterre",e2Start,e2End, "Rendez vous pour un entretien 2",true,true,"Nanterre", interlocutor);
-		e3 = new Event("Evenement 3","Nanterre",e3Start,e3End, "Rendez vous pour un entretien 3",true,true,"Nanterre", interlocutor);
-		e4 = new Event("Evenement 4","Nanterre",e4Start,e4End, "Rendez vous pour un entretien 4",true,true,"Nanterre", interlocutor);
-		e5 = new Event("Evenement 5","Nanterre",e5Start,e5End, "Rendez vous pour un entretien 5",true,true,"Nanterre", interlocutor);
-		e6 = new Event("Evenement 6","Nanterre",e6Start,e6End, "Rendez vous pour un entretien 6",true,true,"Nanterre", interlocutor);
-		e7 = new Event("Evenement 7","Nanterre",e7Start,e7End, "Rendez vous pour un entretien 7",true,true,"Nanterre", interlocutor);
-		e8 = new Event("Evenement 8","Nanterre",e8Start,e8End, "Rendez vous pour un entretien 8",true,true,"Nanterre", interlocutor);
+		e1 = new Event("Evenement 1","Nanterre","13 02 2017 14:00","13 02 2017 15:00", "Rendez vous pour un entretien 1",true,true);
+		e2 = new Event("Evenement 2","Nanterre","14 02 2017 9:00", "14 02 2017 12:00", "Rendez vous pour un entretien 2",true,true);
+		e3 = new Event("Evenement 3","Nanterre","14 02 2017 13:00","14 02 2017 14:00", "Rendez vous pour un entretien 3",true,true);
+		e4 = new Event("Evenement 4","Nanterre","15 02 2017 9:00","15 02 2017 12:00", "Rendez vous pour un entretien 4",true,true);
+		e5 = new Event("Evenement 5","Nanterre","15 05 2017 9:00","15 05 2017 12:00", "Rendez vous pour un entretien 5",true,true);
+		e6 = new Event("Evenement 6","Nanterre","15 05 2017 14:30","15 05 2017 15:00", "Rendez vous pour un entretien 6",true,true);
+		e7 = new Event("Evenement 7","Nanterre","13 02 2017 12:30","13 02 2017 15:15", "Rendez vous pour un entretien 7",true,true);
+		e8 = new Event("Evenement 8","Nanterre","15 05 2017 13:30","15 05 2017 14:45", "Rendez vous pour un entretien 8",true,true);
 		e1.isDateStartStrongness = false;
 		e5.isDateEndStrongness=false;
 		e6.isDateStartStrongness = false;
