@@ -1,4 +1,4 @@
-package com.iaproject.miage.intelligentagenda.profil;
+package com.iaproject.miage.intelligentagenda.activity.Profil;
 
 
 import android.content.Intent;

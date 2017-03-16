@@ -12,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.iaproject.miage.intelligentagenda.R;
-import com.iaproject.miage.intelligentagenda.activity.dayevent.ActivityDay;
 import com.iaproject.miage.intelligentagenda.dao.DAOAuthetification;
 
 
@@ -49,26 +48,25 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String email = editTextMail.getText().toString().trim();
                 String password = editTextPasword.getText().toString().trim();
-	            boolean isComplete = false;
+	            boolean isComplete = true;
 
 	            if (TextUtils.isEmpty(password) && TextUtils.isEmpty(email)) {
 		            Toast.makeText(getApplicationContext(), "Veuillez rentrer votre mail et votre mot de passe SVP", Toast.LENGTH_SHORT).show();
-		            isComplete = true;
+		            isComplete = false;
 		            return;
 	            }
                 if (TextUtils.isEmpty(email)) {
                     Toast.makeText(getApplicationContext(), "Veuillez rentrer votre email SVP", Toast.LENGTH_SHORT).show();
-	                isComplete = true;
+	                isComplete = false;
                     return;
                 }
                 if (TextUtils.isEmpty(password)) {
                     Toast.makeText(getApplicationContext(), "Veuillez rentrer votre mot de passe SVP", Toast.LENGTH_SHORT).show();
-	                isComplete = true;
+	                isComplete = false;
                     return;
                 }
-	            if(!isComplete){
+	            if(isComplete){
 		            daoAuthetification.userLogin(email,password);
-		            startActivity(new Intent(getApplicationContext(),ActivityDay.class));
 	            }
 
             }

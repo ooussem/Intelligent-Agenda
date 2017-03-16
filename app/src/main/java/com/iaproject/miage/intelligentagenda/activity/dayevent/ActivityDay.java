@@ -1,9 +1,6 @@
 package com.iaproject.miage.intelligentagenda.activity.dayevent;
 
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -21,12 +18,12 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.google.firebase.database.DatabaseReference;
 import com.iaproject.miage.intelligentagenda.R;
-import com.iaproject.miage.intelligentagenda.dao.DAODatabase;
 import com.iaproject.miage.intelligentagenda.exception.AddEventException;
 import com.iaproject.miage.intelligentagenda.feature.event.model.Agenda;
 import com.iaproject.miage.intelligentagenda.feature.event.model.Event;
+import com.iaproject.miage.intelligentagenda.dao.*;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -34,22 +31,14 @@ import java.util.HashMap;
 import java.util.List;
 
 import static com.iaproject.miage.intelligentagenda.R.layout.dialog;
-import static com.iaproject.miage.intelligentagenda.R.layout.event_information;
 
 
 public class ActivityDay extends AppCompatActivity {
-<<<<<<< HEAD:app/src/main/java/com/iaproject/miage/intelligentagenda/activity/dayevent/ActivityDay.java
 	DAODatabase daoDatabase;
-	Agenda agenda;
-
-=======
-
-
-	daoDatabase daoDatabase;
 	DatabaseReference dref;
 	Event event = null;
 	public Agenda agenda ;
->>>>>>> ed9000f2436311df8441a89a9c920210eb8eb213:app/src/main/java/com/iaproject/miage/intelligentagenda/activityday/ActivityDay.java
+
 	ImageButton buttonAdd;
 	SimpleAdapter sa = null;
 	List<HashMap<String,Object>> list = null;
@@ -57,40 +46,23 @@ public class ActivityDay extends AppCompatActivity {
 	ListView listView = null;
 	static int i = 0;
 
-<<<<<<< HEAD:app/src/main/java/com/iaproject/miage/intelligentagenda/activity/dayevent/ActivityDay.java
-=======
-	public ActivityDay() throws AddEventException {
-	}
 
->>>>>>> ed9000f2436311df8441a89a9c920210eb8eb213:app/src/main/java/com/iaproject/miage/intelligentagenda/activityday/ActivityDay.java
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_day);
-<<<<<<< HEAD:app/src/main/java/com/iaproject/miage/intelligentagenda/activity/dayevent/ActivityDay.java
 		daoDatabase = new DAODatabase();
-
-=======
 		agenda = Agenda.getInstance();
->>>>>>> ed9000f2436311df8441a89a9c920210eb8eb213:app/src/main/java/com/iaproject/miage/intelligentagenda/activityday/ActivityDay.java
 
-		this.agenda = new Agenda("programme","Nanterre");
 		list = new ArrayList<>();
-<<<<<<< HEAD:app/src/main/java/com/iaproject/miage/intelligentagenda/activity/dayevent/ActivityDay.java
 
-		String[] from = new String[]{"titre", "description"};
-		int[] to = new int[]{R.id.activity_title_event, R.id.activity_title_descip};
-
-		sa = new SimpleAdapter(this, list, R.layout.list_event, from, to);
-		listView = (ListView) findViewById(R.id.listView);
-		listView.setAdapter(sa);
-=======
 		String[] from = new String[]{"titre", "place","start","end","despcription"};
 		int[] to = new int[]{R.id.activity_title_event, R.id.activity_place,R.id.activity_start,R.id.activity_end,R.id.activity_descrption};
 		sa = new SimpleAdapter(this, list, R.layout.list_event, from, to);
-		lv = (ListView) findViewById(R.id.listView);
-		lv.setAdapter(sa);
+		listView = (ListView) findViewById(R.id.listView);
+		listView.setAdapter(sa);
 		sa.notifyDataSetChanged();
+
 
 	/*	dref= FirebaseDatabase.getInstance().getReference();
 		dref.child("users").addChildEventListener(new ChildEventListener() {
@@ -127,7 +99,7 @@ public class ActivityDay extends AppCompatActivity {
 			}
 		});
 		*/
->>>>>>> ed9000f2436311df8441a89a9c920210eb8eb213:app/src/main/java/com/iaproject/miage/intelligentagenda/activityday/ActivityDay.java
+
 
 		buttonAdd = (ImageButton) findViewById(R.id.activity_day_button_add);
 		buttonAdd.setOnClickListener(new View.OnClickListener() {
@@ -141,20 +113,7 @@ public class ActivityDay extends AppCompatActivity {
 							@Override
 							public void onClick(DialogInterface dialogInterface, int wich) {
 								// operation à effectuées
-<<<<<<< HEAD:app/src/main/java/com/iaproject/miage/intelligentagenda/activity/dayevent/ActivityDay.java
-								EditText descrip = (EditText)view.findViewById(R.id.editTextDescription);
-								EditText tit = (EditText)view.findViewById(R.id.editTextTitle);
-								EditText pla = (EditText)view.findViewById(R.id.editTextPlace);
-								EditText start = (EditText)view.findViewById(R.id.editTextStart);
-								EditText end = (EditText)view.findViewById(R.id.editTextEnd);
-								CheckBox dForte=(CheckBox) view.findViewById(R.id.checkBoxStart);
-								CheckBox fForte=(CheckBox) view.findViewById(R.id.checkBoxeEnd);
-								boolean isDateStartStrongness=true;
-								boolean isDateEndStrongness=true;
 
-								if(dForte.isChecked()){
-									isDateStartStrongness=false;
-=======
 								EditText descrip = (EditText) view.findViewById(R.id.editTextDescription);
 								EditText tit = (EditText) view.findViewById(R.id.editTextTitle);
 								EditText pla = (EditText) view.findViewById(R.id.editTextPlace);
@@ -169,9 +128,9 @@ public class ActivityDay extends AppCompatActivity {
 								if (TextUtils.isEmpty(tit.getText().toString())||TextUtils.isEmpty(pla.getText().toString())
 										||TextUtils.isEmpty(start.getText().toString())||TextUtils.isEmpty(end.getText().toString())
 										||TextUtils.isEmpty(descrip.getText().toString()) ) {
-									Toast.makeText(getApplicationContext(), "Veuillez remplir tous les champs S.V.P ...", Toast.LENGTH_SHORT).show();
+									Toast.makeText(getApplicationContext(), "Veuillez remplir tous les champs S.V.P", Toast.LENGTH_SHORT).show();
 									return;
->>>>>>> ed9000f2436311df8441a89a9c920210eb8eb213:app/src/main/java/com/iaproject/miage/intelligentagenda/activityday/ActivityDay.java
+
 								}
 								if (dForte.isChecked()) {
 									isDateStartStrongness = false;
@@ -179,31 +138,18 @@ public class ActivityDay extends AppCompatActivity {
 								if (fForte.isChecked()) {
 									isDateEndStrongness = false;
 								}
-<<<<<<< HEAD:app/src/main/java/com/iaproject/miage/intelligentagenda/activity/dayevent/ActivityDay.java
-
-//								SimpleDateFormat sdf = new SimpleDateFormat("dd MM yyyy hh:mm");
-//								Date date1 ;
-//								Date date2 ;
-//								GregorianCalendar cal = new GregorianCalendar();
-//								GregorianCalendar cal2 = new GregorianCalendar();
-//								date1 = sdf.parse(start.getText().toString(),new ParsePosition(0));
-//								date2 = sdf.parse(end.getText().toString(),new ParsePosition(0));
-//								cal.setTime(date1);
-//								cal2.setTime(date2);
-
-
-								try {
-									event = new Event(tit.getText().toString(), pla.getText().toString(),
-											start.getText().toString(),end.getText().toString(),
-											descrip.getText().toString(),isDateStartStrongness,isDateEndStrongness);
-=======
-
 
 								try {
 									event = new Event(tit.getText().toString(), pla.getText().toString(), start.getText().toString(), end.getText().toString(), descrip.getText().toString(), isDateStartStrongness, isDateEndStrongness);
-									daoDatabase = new daoDatabase();
-									daoDatabase.addEvent(event, agenda);
->>>>>>> ed9000f2436311df8441a89a9c920210eb8eb213:app/src/main/java/com/iaproject/miage/intelligentagenda/activityday/ActivityDay.java
+									daoDatabase = new DAODatabase();
+									daoDatabase.addEvent(event,agenda);map = new HashMap<String, Object>();
+									map.put("titre", tit.getText().toString());
+									map.put("place", pla.getText().toString());
+									i++;
+									list.add(map);
+									sa.notifyDataSetChanged();
+									listView.setAdapter(sa);
+
 								} catch (AddEventException e) {
 									e.printStackTrace();
 									Toast.makeText(getApplicationContext(), "catch 1", Toast.LENGTH_SHORT).show();
@@ -211,45 +157,31 @@ public class ActivityDay extends AppCompatActivity {
 									e.printStackTrace();
 									Toast.makeText(getApplicationContext(), "catch 2", Toast.LENGTH_SHORT).show();
 								}
-<<<<<<< HEAD:app/src/main/java/com/iaproject/miage/intelligentagenda/activity/dayevent/ActivityDay.java
 
-								agenda.addEvent(event);
-								daoDatabase.addEvent(agenda,event);
-
-
-								Toast.makeText(getApplicationContext(),tit.getText().toString(), Toast.LENGTH_SHORT).show();
-
-=======
 								Toast.makeText(getApplicationContext(), tit.getText().toString(), Toast.LENGTH_SHORT).show();
 								//	Toast.makeText(getApplicationContext(),tit.getText().toString(), Toast.LENGTH_SHORT).show();
->>>>>>> ed9000f2436311df8441a89a9c920210eb8eb213:app/src/main/java/com/iaproject/miage/intelligentagenda/activityday/ActivityDay.java
-								map = new HashMap<String, Object>();
-								map.put("titre", tit.getText().toString());
-								map.put("place", pla.getText().toString());
-								i++;
-								list.add(map);
-								sa.notifyDataSetChanged();
-<<<<<<< HEAD:app/src/main/java/com/iaproject/miage/intelligentagenda/activity/dayevent/ActivityDay.java
-								listView.setAdapter(sa);
-							}
-						})
-=======
-								lv.setAdapter(sa);
 
-								Notification.Builder builder = new Notification.Builder(getApplicationContext());
-								Notification notification = builder
-										.setSmallIcon(R.mipmap.ic_launcher)
-										.setContentTitle("Intelligent agenda")
-										.setContentText("Un nouvel evenement à été ajouté " )
-										.build();
-								NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-								notificationManager.notify(0,notification);
+
 							}
+
+
+
+
+//								Notification.Builder builder = new Notification.Builder(getApplicationContext());
+//								Notification notification = builder
+//										.setSmallIcon(R.mipmap.ic_launcher)
+//										.setContentTitle("Intelligent agenda")
+//										.setContentText("Un nouvel evenement à été ajouté " )
+//										.build();
+//								NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+//								notificationManager.notify(0,notification);
+
 						}
 						)
->>>>>>> ed9000f2436311df8441a89a9c920210eb8eb213:app/src/main/java/com/iaproject/miage/intelligentagenda/activityday/ActivityDay.java
+
 						.setNegativeButton("quitter", null)
 						.setCancelable(false);
+
 				AlertDialog dialog = Builder.create();
 				dialog.show();
 
@@ -257,9 +189,7 @@ public class ActivityDay extends AppCompatActivity {
 
 		});
 
-<<<<<<< HEAD:app/src/main/java/com/iaproject/miage/intelligentagenda/activity/dayevent/ActivityDay.java
-		listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-=======
+
 		final ImageButton sms = (ImageButton) findViewById(R.id.sms);
 		sms.setOnClickListener(new View.OnClickListener() {
 
@@ -301,30 +231,22 @@ public class ActivityDay extends AppCompatActivity {
 		});
 
 
-		lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
->>>>>>> ed9000f2436311df8441a89a9c920210eb8eb213:app/src/main/java/com/iaproject/miage/intelligentagenda/activityday/ActivityDay.java
+		listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+
 			@Override
 			public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
 				list.remove(position);
 				sa.notifyDataSetChanged();
-				daoDatabase.deleteEvent(agenda,event);
-				//agenda.deleteEvent(event);
+				daoDatabase.deleteEvent(agenda, event);
 				return true;
 			}
 		});
-<<<<<<< HEAD:app/src/main/java/com/iaproject/miage/intelligentagenda/activity/dayevent/ActivityDay.java
-
 
 		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-			// sans code
-=======
-		lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-				final View view2 = LayoutInflater.from(ActivityDay.this).inflate(event_information, null);
+				final View view2 = LayoutInflater.from(ActivityDay.this).inflate(R.layout.event_information, null);
 				AlertDialog.Builder Builder1 = new AlertDialog.Builder(ActivityDay.this);
 
 
@@ -350,7 +272,7 @@ public class ActivityDay extends AppCompatActivity {
 
 
 
->>>>>>> ed9000f2436311df8441a89a9c920210eb8eb213:app/src/main/java/com/iaproject/miage/intelligentagenda/activityday/ActivityDay.java
+
 
 			}
 

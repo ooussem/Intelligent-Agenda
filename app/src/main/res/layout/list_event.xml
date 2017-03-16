@@ -22,10 +22,7 @@
         android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
-        android:id="@+id/activity_title_descip"
-        android:textColor="@color/colorEvent"/>
-=======
+        android:textColor="@color/colorEvent"
         android:id="@+id/activity_place"
         android:textStyle="normal|bold|italic"
         android:textAllCaps="true"

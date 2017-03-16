@@ -41,14 +41,7 @@
         android:layout_weight="2.34"
         android:id="@+id/linearLayout">
 
-<<<<<<< HEAD
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="445dp"
-            android:id="@+id/listView" />
 
-=======
->>>>>>> ed9000f2436311df8441a89a9c920210eb8eb213
     </LinearLayout>
 
     <ImageView

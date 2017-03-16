@@ -72,8 +72,10 @@ public class Event implements Comparable<Event>{
 		if(dateStart.before(dateEnd)) {
 			this.isDateEndStrongness = true;
 			this.isDateStartStrongness = true;
-
 		}
+			else
+				throw new AddEventException();
+
 	}
 
 

@@ -18,15 +18,12 @@
             </intent-filter>
         </activity>
 
-<<<<<<< HEAD
+
         <activity android:name=".activity.dayevent.ActivityDay"/>
         <activity android:name=".activity.authentification.SignUpActivity" />
-        <activity android:name=".profil.ProfileActivity" />
+        <activity android:name=".activity.Profil.ProfileActivity" />
         <activity android:name=".activity.authentification.ResetPasswordActivity"></activity>
 
-
-=======
->>>>>>> ed9000f2436311df8441a89a9c920210eb8eb213
     </application>
 
 </manifest>

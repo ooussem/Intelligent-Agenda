@@ -1,6 +1,7 @@
 package com.iaproject.miage.intelligentagenda.dao;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.widget.Toast;
@@ -9,6 +10,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.iaproject.miage.intelligentagenda.activity.dayevent.ActivityDay;
 
 /**
  * Created by kp on 08/03/2017.
@@ -31,6 +33,7 @@ public class DAOAuthetification {
 	                if (task.isSuccessful()) {
 	                   Toast.makeText(myActivity.getApplicationContext(), "Bravo", Toast.LENGTH_SHORT).show();
 	                    //finish();
+                        myActivity.startActivity(new Intent(myActivity.getApplicationContext(),ActivityDay.class));
 	                } else {
 	                   Toast.makeText(myActivity.getApplicationContext(), "Connection failed ", Toast.LENGTH_SHORT).show();
 	                }
