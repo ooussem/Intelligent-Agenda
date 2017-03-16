@@ -142,7 +142,8 @@ public class ActivityDay extends AppCompatActivity {
 								try {
 									event = new Event(tit.getText().toString(), pla.getText().toString(), start.getText().toString(), end.getText().toString(), descrip.getText().toString(), isDateStartStrongness, isDateEndStrongness);
 									daoDatabase = new DAODatabase();
-									daoDatabase.addEvent(event,agenda);map = new HashMap<String, Object>();
+									daoDatabase.addEvent(event,agenda);
+									map = new HashMap<String, Object>();
 									map.put("titre", tit.getText().toString());
 									map.put("place", pla.getText().toString());
 									i++;
@@ -164,9 +165,6 @@ public class ActivityDay extends AppCompatActivity {
 
 							}
 
-
-
-
 //								Notification.Builder builder = new Notification.Builder(getApplicationContext());
 //								Notification notification = builder
 //										.setSmallIcon(R.mipmap.ic_launcher)
@@ -176,8 +174,7 @@ public class ActivityDay extends AppCompatActivity {
 //								NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
 //								notificationManager.notify(0,notification);
 
-						}
-						)
+						})
 
 						.setNegativeButton("quitter", null)
 						.setCancelable(false);
@@ -192,7 +189,6 @@ public class ActivityDay extends AppCompatActivity {
 
 		final ImageButton sms = (ImageButton) findViewById(R.id.sms);
 		sms.setOnClickListener(new View.OnClickListener() {
-
 			public void onClick(View view) {
 				Intent smsIntent = new Intent(Intent.ACTION_VIEW);
 				smsIntent.setData(Uri.parse("smsto:"));
@@ -248,9 +244,6 @@ public class ActivityDay extends AppCompatActivity {
 
 				final View view2 = LayoutInflater.from(ActivityDay.this).inflate(R.layout.event_information, null);
 				AlertDialog.Builder Builder1 = new AlertDialog.Builder(ActivityDay.this);
-
-
-
 				TextView des=(TextView)view2.findViewById(R.id.TextViewDescription);
 				TextView ti=(TextView)view2.findViewById(R.id.TextViewTitre);
 				TextView dd=(TextView)view2.findViewById(R.id.TextViewDateDebut);

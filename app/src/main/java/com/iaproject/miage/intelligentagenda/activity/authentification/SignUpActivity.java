@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.iaproject.miage.intelligentagenda.R;
 import com.iaproject.miage.intelligentagenda.dao.DAOAuthetification;
+import com.iaproject.miage.intelligentagenda.dao.DAODatabase;
 
 public class SignUpActivity extends AppCompatActivity {
     Button buttonRegister;
@@ -34,7 +35,6 @@ public class SignUpActivity extends AppCompatActivity {
                 String email = editTextMail.getText().toString().trim();
                 String password = editTextPasword.getText().toString().trim();
                 daoAuthetification.registerUser(email,password);
-	            daoDatabase.addUser();
             }
         });
 
