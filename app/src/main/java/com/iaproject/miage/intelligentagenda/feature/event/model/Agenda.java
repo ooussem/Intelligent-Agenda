@@ -13,6 +13,7 @@ import java.util.Map;
  */
 
 public class Agenda {
+	public  Agenda agenda ;
 	public String titleAgenda;
 	public String basePlace;
 
@@ -21,13 +22,21 @@ public class Agenda {
 	public Map<Calendar, List<Traject>> courses;
 
 
-	public Agenda(String titleAgenda,String basePlace){
+	private Agenda(String titleAgenda,String basePlace){
 		this.titleAgenda = titleAgenda;
 		this.listEvent = new ArrayList<>();
 		this.basePlace = basePlace;
 		courses = new HashMap<>();
 	}
 
+	/** Instance unique pré-initialisée */
+	private static Agenda INSTANCE = new Agenda("My agenda", "Nanterre");
+
+
+	/** Point d'accès pour l'instance unique du singleton */
+	public static Agenda getInstance()
+	{	return INSTANCE;
+	}
 
 	/**
 	 * Permet d'ajouter un évenement dans la liste

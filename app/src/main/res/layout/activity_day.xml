@@ -21,6 +21,9 @@
         android:layout_alignTop="@+id/activity_day_button_add"
         android:layout_weight="1"/>
 
+
+
+
     <ImageButton
         android:id="@+id/activity_day_button_add"
         android:layout_width="wrap_content"
@@ -30,6 +33,7 @@
         android:layout_alignParentStart="true"
         android:layout_weight="1"/>
 
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="131dp"
@@ -37,65 +41,53 @@
         android:layout_weight="2.34"
         android:id="@+id/linearLayout">
 
+<<<<<<< HEAD
         <ListView
             android:layout_width="match_parent"
             android:layout_height="445dp"
             android:id="@+id/listView" />
 
+=======
+>>>>>>> ed9000f2436311df8441a89a9c920210eb8eb213
     </LinearLayout>
 
-
-    <TextView
-        android:text="Date end"
-        android:id="@+id/activity_date_end_event"
-        android:layout_height="40dp"
+    <ImageView
         android:layout_width="wrap_content"
-        android:clickable="true"
-        android:textSize="18sp"
-        android:textColorLink="?android:attr/colorActivatedHighlight"
-        android:textColor="@color/colorEvent"
-        android:layout_marginTop="18dp"
-        android:layout_below="@+id/activity_date_start_event"
-        android:layout_alignStart="@+id/activity_title_event" />
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_power_calendar"
+        android:id="@+id/imageView"
+        android:layout_above="@+id/listView"
+        android:layout_alignEnd="@+id/test" />
 
-    <TextView
-        android:text="Date start"
-        android:id="@+id/activity_date_start_event"
-        android:layout_height="40dp"
-        android:layout_width="100dp"
-        android:clickable="true"
-        android:textSize="18sp"
-        android:textColorLink="?android:attr/colorActivatedHighlight"
-        android:textColor="@color/colorEvent"
-        android:layout_marginTop="57dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/activity_date_end_event" />
+    <ListView
+        android:id="@+id/listView"
+        android:headerDividersEnabled="false"
+        android:layout_width="fill_parent"
+        android:gravity="center"
+        android:layout_height="400dp"
+        android:layout_marginBottom="17dp"
+        android:layout_above="@+id/activity_day_button_less"
+        android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:text="Titre"
-        android:id="@+id/activity_title_event"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:clickable="true"
-        android:textSize="18sp"
-        android:textColorLink="?android:attr/colorActivatedHighlight"
-        android:textColor="@color/colorEvent"
-        android:layout_marginStart="114dp"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/activity_day_button_less" />
-
-    <TextView
-        android:text="Description"
-        android:id="@+id/activity_desc_event"
+    <ImageButton
+        android:id="@+id/phone"
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:clickable="true"
-        android:textSize="18sp"
-        android:textColorLink="?android:attr/colorActivatedHighlight"
-        android:textColor="@color/colorEvent"
-        android:layout_below="@+id/activity_date_end_event"
-        android:layout_alignStart="@+id/activity_date_end_event"
-        android:layout_marginTop="18dp" />
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/stat_sys_phone_call"
+
+
+        android:layout_weight="1"
+        android:layout_marginEnd="88dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:id="@+id/sms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_dialog_email"
+        android:layout_alignTop="@+id/phone"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>

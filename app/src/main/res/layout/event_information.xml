@@ -4,74 +4,72 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <EditText
-        android:id="@+id/editTextTitle"
-        android:hint="Entrez votre titre"
+    <TextView
+        android:id="@+id/TextViewTitre"
+        android:textAlignment="center"
+        android:text="titre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" >
+
+        <requestFocus />
+    </TextView>
+
+
+    <TextView
+        android:id="@+id/TextViewPlace"
+        android:text="place"
         android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10" >
 
         <requestFocus />
-    </EditText>
+    </TextView>
 
-    <EditText
-        android:id="@+id/editTextPlace"
-        android:hint="Entrez votre place"
+
+
+    <TextView
+        android:id="@+id/TextViewDateDebut"
+        android:text="date debut"
         android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10" >
 
         <requestFocus />
-    </EditText>
+    </TextView>
 
-    <EditText
-        android:id="@+id/editTextStart"
+
+
+    <TextView
+        android:id="@+id/TextViewDateFin"
+        android:text="date fin"
         android:textAlignment="center"
-        android:hint="dd/mm/yyyy hh:mm"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="datetime">
-        android:ems="10" >
-
-        <requestFocus />
-    </EditText>
-
-    <EditText
-        android:id="@+id/editTextEnd"
-        android:textAlignment="center"
-        android:hint="dd/mm/yyyy hh:mm"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="datetime">
-        android:ems="10" >
-
-        <requestFocus />
-    </EditText>
-
-    <EditText
-        android:id="@+id/editTextDescription"
-        android:textAlignment="center"
-        android:hint="Entrez votre description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10" >
 
         <requestFocus />
-    </EditText>
+    </TextView>
 
-    <CheckBox
-        android:text="Date debut forte"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/checkBoxStart" />
 
-    <CheckBox
-        android:text="Date fin forte"
+    <TextView
+        android:id="@+id/TextViewDescription"
+        android:text="description"
+        android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/checkBoxeEnd" />
+        android:ems="10" >
+
+        <requestFocus />
+    </TextView>
+
+    <ImageButton
+        android:id="@+id/test"
+        android:layout_width="69dp"
+        android:layout_height="match_parent"
+/>
 
 
 </LinearLayout>

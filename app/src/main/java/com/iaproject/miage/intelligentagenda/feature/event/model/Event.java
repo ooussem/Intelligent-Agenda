@@ -49,9 +49,8 @@ public class Event implements Comparable<Event>{
 //			throw new AddEventException();
 //	}
 
-
 	public Event(String title, String place, String startDate, String endDate, String description,
-	             Boolean isDateStartStrongness,Boolean isDateEndStrongness)
+	             Boolean isDateStartStrongness,Boolean isDateEndStrongness )
 			throws AddEventException, ParseException {
 
 		this.title = title;
@@ -60,6 +59,8 @@ public class Event implements Comparable<Event>{
 		sdf = new SimpleDateFormat("dd MM yyyy HH:mm");
 		this.startDate = startDate;
 		this.endDate = endDate;
+		this.isDateEndStrongness = isDateEndStrongness;
+		this.isDateStartStrongness = isDateStartStrongness;
 		Date dd = sdf.parse(startDate);
 		Date de = sdf.parse(endDate);
 		this.dateStart=new GregorianCalendar();
@@ -68,13 +69,11 @@ public class Event implements Comparable<Event>{
 		this.dateEnd.setTime(de);
 		this.isDateEndStrongness = true;
 		this.isDateStartStrongness = true;
-		if(dateStart.before(dateEnd)){
+		if(dateStart.before(dateEnd)) {
 			this.isDateEndStrongness = true;
 			this.isDateStartStrongness = true;
 
 		}
-		else
-			throw new AddEventException();
 	}
 
 

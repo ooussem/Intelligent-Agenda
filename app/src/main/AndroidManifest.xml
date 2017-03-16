@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.iaproject.miage.intelligentagenda">
 
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,12 +18,15 @@
             </intent-filter>
         </activity>
 
+<<<<<<< HEAD
         <activity android:name=".activity.dayevent.ActivityDay"/>
         <activity android:name=".activity.authentification.SignUpActivity" />
         <activity android:name=".profil.ProfileActivity" />
         <activity android:name=".activity.authentification.ResetPasswordActivity"></activity>
 
 
+=======
+>>>>>>> ed9000f2436311df8441a89a9c920210eb8eb213
     </application>
 
 </manifest>

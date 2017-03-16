@@ -10,17 +10,49 @@
         android:layout_width="match_parent"
         android:id="@+id/activity_title_event"
         android:clickable="true"
-        android:textSize="25sp"
+        android:textSize="24sp"
         android:textColorLink="?android:attr/colorActivatedHighlight"
-        android:textColor="@color/colorEvent"
-        android:layout_height="50dp"/>
+        android:textColor="?attr/actionMenuTextColor"
+        android:layout_height="50dp"
+        android:textStyle="normal|bold|italic"
+        android:textAlignment="center"
+        android:textAllCaps="true" />
 
     <TextView
         android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:id="@+id/activity_title_descip"
         android:textColor="@color/colorEvent"/>
+=======
+        android:id="@+id/activity_place"
+        android:textStyle="normal|bold|italic"
+        android:textAllCaps="true"
+        android:textAlignment="center"
+        android:textSize="14sp" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/activity_start"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/activity_end"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/activity_descrption"
+        android:textAlignment="center" />
+>>>>>>> ed9000f2436311df8441a89a9c920210eb8eb213
 
 
 </LinearLayout>
