@@ -2,7 +2,6 @@ package com.iaproject.miage.intelligentagenda.test;
 
 import com.iaproject.miage.intelligentagenda.feature.event.model.Agenda;
 import com.iaproject.miage.intelligentagenda.feature.event.model.Event;
-import com.iaproject.miage.intelligentagenda.feature.event.model.Interlocutor;
 
 import junit.framework.Assert;
 
@@ -44,12 +43,11 @@ public class AgendaTest {
 	Event e7;
 	Event e8;
 	List<Event> eventList;
-	Interlocutor interlocutor;
-
 
 	@Before
 	public void setUp() throws Exception {
 		agenda = Agenda.getInstance("My agenda","Nanterre");
+
 //		e1Start = new GregorianCalendar(2017, 2, 13, 14, 00);
 //		e1End = new GregorianCalendar(2017, 2, 13, 15, 00);
 //
@@ -74,14 +72,14 @@ public class AgendaTest {
 //		e8Start = new GregorianCalendar(2017, 5, 15, 13, 30);
 //		e8End = new GregorianCalendar(2017, 5, 15, 14, 45);
 
-		e1 = new Event("Evenement 1","Nanterre","13 02 2017 14:00","13 02 2017 15:00", "Rendez vous pour un entretien 1",true,true);
-		e2 = new Event("Evenement 2","Nanterre","14 02 2017 9:00", "14 02 2017 12:00", "Rendez vous pour un entretien 2",true,true);
-		e3 = new Event("Evenement 3","Nanterre","14 02 2017 13:00","14 02 2017 14:00", "Rendez vous pour un entretien 3",true,true);
-		e4 = new Event("Evenement 4","Nanterre","15 02 2017 9:00","15 02 2017 12:00", "Rendez vous pour un entretien 4",true,true);
-		e5 = new Event("Evenement 5","Nanterre","15 05 2017 9:00","15 05 2017 12:00", "Rendez vous pour un entretien 5",true,true);
-		e6 = new Event("Evenement 6","Nanterre","15 05 2017 14:30","15 05 2017 15:00", "Rendez vous pour un entretien 6",true,true);
-		e7 = new Event("Evenement 7","Nanterre","13 02 2017 12:30","13 02 2017 14:15", "Rendez vous pour un entretien 7",true,true);
-		e8 = new Event("Evenement 8","Nanterre","15 05 2017 13:30","15 05 2017 14:45", "Rendez vous pour un entretien 8",true,true);
+		e1 = new Event("Evenement 1","Nanterre","1302201714:00","1302201715:00", "Rendez vous pour un entretien 1",true,true);
+		e2 = new Event("Evenement 2","Nanterre","140220179:00", "1402201712:00", "Rendez vous pour un entretien 2",true,true);
+		e3 = new Event("Evenement 3","Nanterre","1402201713:00","1402201714:00", "Rendez vous pour un entretien 3",true,true);
+		e4 = new Event("Evenement 4","Nanterre","150220179:00","1502201712:00", "Rendez vous pour un entretien 4",true,true);
+		e5 = new Event("Evenement 5","Nanterre","150520179:00","1505201712:00", "Rendez vous pour un entretien 5",true,true);
+		e6 = new Event("Evenement 6","Nanterre","1505201714:30","1505201715:00", "Rendez vous pour un entretien 6",true,true);
+		e7 = new Event("Evenement 7","Nanterre","1302201712:30","1302201714:15", "Rendez vous pour un entretien 7",true,true);
+		e8 = new Event("Evenement 8","Nanterre","1505201713:30","1505201714:45", "Rendez vous pour un entretien 8",true,true);
 		e1.isDateStartStrongness = false;
 		e5.isDateEndStrongness=false;
 		e6.isDateStartStrongness = false;
@@ -111,41 +109,26 @@ public class AgendaTest {
 		Assert.assertEquals(1,e3.compareTo(e1));
 		Assert.assertEquals(1,e3.compareTo(e2));
 
-		Assert.assertEquals(true,agenda.addEvent(e1));
-		Assert.assertEquals(true,agenda.addEvent(e2));
-		Assert.assertEquals(false,agenda.addEvent(e1));
-		Assert.assertEquals(false,agenda.addEvent(e1));
-		Assert.assertEquals(false,agenda.addEvent(e2));
-		Assert.assertEquals(true,agenda.addEvent(e3));
-		Assert.assertEquals(true,agenda.addEvent(e4));
-		Assert.assertEquals(false,agenda.addEvent(e3));
-		Assert.assertEquals(true,agenda.addEvent(e5));
-		Assert.assertEquals(true,agenda.addEvent(e6));
-		Assert.assertEquals(true,agenda.addEvent(e7));
-		Assert.assertEquals(true,agenda.addEvent(e8));
+		Assert.assertEquals(true,agenda.addEvent(e1,e1.startDate));
+		Assert.assertEquals(true,agenda.addEvent(e2,e2.startDate));
+		Assert.assertEquals(false,agenda.addEvent(e1,e1.startDate));
+		Assert.assertEquals(false,agenda.addEvent(e1,e1.startDate));
+		Assert.assertEquals(false,agenda.addEvent(e2,e2.startDate));
+		Assert.assertEquals(true,agenda.addEvent(e3,e3.startDate));
+		Assert.assertEquals(true,agenda.addEvent(e4,e4.startDate));
+		Assert.assertEquals(false,agenda.addEvent(e3,e3.startDate));
+		Assert.assertEquals(true,agenda.addEvent(e5,e5.startDate));
+		Assert.assertEquals(true,agenda.addEvent(e6,e6.startDate));
+		Assert.assertEquals(true,agenda.addEvent(e7,e7.startDate));
+		Assert.assertEquals(true,agenda.addEvent(e8,e8.startDate));
 
 
-		System.out.println("Size = " +agenda.listEvent.size());
-
-		for(Event event: agenda.listEvent.subList(0,agenda.listEvent.size())){
-			System.out.println(event.title+ ", hd = " +event.dateStart.getTime()+ ", he = " +event.dateEnd.getTime());
-		}
+//		System.out.println("Size = " +agenda.courses.listEvents.size());
+//
+//		for(Event event: agenda.listEvent.subList(0,agenda.listEvent.size())){
+//			System.out.println(event.title+ ", hd = " +event.dateStart.getTime()+ ", he = " +event.dateEnd.getTime());
+//		}
 	}
 
-
-//	@Test
-//	public void deleteEvent() throws Exception {
-//		agenda.deleteEvent(e1);
-//		boolean testDel = agenda.listEvent.contains(e1);
-//		Assert.assertEquals(false, testDel);
-//	}
-
-
-
-	@Test
-	public void checkOverlapEvent() throws Exception {
-
-
-	}
 
 }

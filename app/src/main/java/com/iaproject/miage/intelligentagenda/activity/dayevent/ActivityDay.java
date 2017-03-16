@@ -52,7 +52,7 @@ public class ActivityDay extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_day);
 		daoDatabase = new DAODatabase();
-		agenda = Agenda.getInstance();
+		agenda = Agenda.getInstance("My agenda", "Nanterre");
 
 		list = new ArrayList<>();
 
@@ -64,41 +64,41 @@ public class ActivityDay extends AppCompatActivity {
 		sa.notifyDataSetChanged();
 
 
-	/*	dref= FirebaseDatabase.getInstance().getReference();
-		dref.child("users").addChildEventListener(new ChildEventListener() {
-			@Override
-			public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-				Iterable<DataSnapshot> chiledren = dataSnapshot.getChildren();
-				for(DataSnapshot child:chiledren){
+//		dref= FirebaseDatabase.getInstance().getReference();
+//		dref.child("users").addChildEventListener(new ChildEventListener() {
+//			@Override
+//			public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//				Iterable<DataSnapshot> chiledren = dataSnapshot.getChildren();
+//				for(DataSnapshot child:chiledren){
+//
+//					Event ev=child.getValue(Event.class);
+//					map = new HashMap<String, Object>();
+//					map.put("titre", ev.title);
+//					map.put("place", ev.place);
+//					map.put("start",ev.dateStart);
+//					map.put("end",ev.dateEnd);
+//					map.put("description",ev.description);
+//
+//					list.add(map);
+//					sa.notifyDataSetChanged();
+//					lv.setAdapter(sa);
+//				}
+//			}
+//			@Override
+//			public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//			}
+//			@Override
+//			public void onChildRemoved(DataSnapshot dataSnapshot) {
+//			}
+//			@Override
+//			public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//			}
+//			@Override
+//			public void onCancelled(DatabaseError databaseError) {
+//
+//			}
+//		});
 
-					Event ev=child.getValue(Event.class);
-					map = new HashMap<String, Object>();
-					map.put("titre", ev.title);
-					map.put("place", ev.place);
-					map.put("start",ev.dateStart);
-					map.put("end",ev.dateEnd);
-					map.put("description",ev.description);
-
-					list.add(map);
-					sa.notifyDataSetChanged();
-					lv.setAdapter(sa);
-				}
-			}
-			@Override
-			public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-			}
-			@Override
-			public void onChildRemoved(DataSnapshot dataSnapshot) {
-			}
-			@Override
-			public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-			}
-			@Override
-			public void onCancelled(DatabaseError databaseError) {
-
-			}
-		});
-		*/
 
 
 		buttonAdd = (ImageButton) findViewById(R.id.activity_day_button_add);
@@ -228,7 +228,6 @@ public class ActivityDay extends AppCompatActivity {
 
 
 		listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-
 			@Override
 			public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
 				list.remove(position);
@@ -241,7 +240,6 @@ public class ActivityDay extends AppCompatActivity {
 		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
 				final View view2 = LayoutInflater.from(ActivityDay.this).inflate(R.layout.event_information, null);
 				AlertDialog.Builder Builder1 = new AlertDialog.Builder(ActivityDay.this);
 				TextView des=(TextView)view2.findViewById(R.id.TextViewDescription);
@@ -262,11 +260,6 @@ public class ActivityDay extends AppCompatActivity {
 						.setCancelable(false);
 				AlertDialog dialog = Builder1.create();
 				dialog.show();
-
-
-
-
-
 			}
 
 		});
@@ -276,5 +269,6 @@ public class ActivityDay extends AppCompatActivity {
 	@Override
 	protected void onStart() {
 		super.onStart();
+
 	}
 }

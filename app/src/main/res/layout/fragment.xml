@@ -23,7 +23,7 @@
         android:hint="debut"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="date">
+        android:inputType="text">
         android:ems="10" >
 
         <requestFocus />
@@ -35,7 +35,7 @@
         android:hint="End"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="date">
+        android:inputType="text">
         android:ems="10" >
 
         <requestFocus />
@@ -48,13 +48,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10" >
-
         <requestFocus />
     </EditText>
 
-
-
-
+    <DatePicker
+        android:layout_width="match_parent"
+        android:id="@+id/datePicker"
+        android:layout_height="wrap_content"/>
 
 
 </LinearLayout>
