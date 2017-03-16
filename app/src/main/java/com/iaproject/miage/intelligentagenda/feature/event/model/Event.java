@@ -24,30 +24,8 @@ public class Event implements Comparable<Event>{
 	public String endDate;
 	@Exclude
 	public SimpleDateFormat sdf;
-	public Interlocutor interlocutor;
 
 
-
-//	public Event(String title, String place, Calendar dateStart, Calendar dateEnd, String description,
-//	             boolean isDateStartStrongness, boolean isDateEndStrongness, String transport, Interlocutor interlocutor)
-//		throws AddEventException {
-//		this.title = title;
-//		this.place = place;
-//		this.description = description;
-//		this.transport = transport;
-//		this.interlocutor = interlocutor;
-//		if(dateStart.before(dateEnd)){
-//			this.dateStart = dateStart;
-//			this.dateEnd = dateEnd;
-//			this.isDateEndStrongness = true;
-//			this.isDateStartStrongness = true;
-//			sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.FRANCE);
-//			startDate= sdf.format(dateStart.getTime());
-//			endDate= sdf.format(dateEnd.getTime());
-//		}
-//		else
-//			throw new AddEventException();
-//	}
 
 	public Event(String title, String place, String startDate, String endDate, String description,
 	             Boolean isDateStartStrongness,Boolean isDateEndStrongness )
@@ -77,6 +55,7 @@ public class Event implements Comparable<Event>{
 				throw new AddEventException();
 
 	}
+
 
 
 	@Override

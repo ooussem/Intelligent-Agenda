@@ -49,9 +49,7 @@ public class AgendaTest {
 
 	@Before
 	public void setUp() throws Exception {
-		agenda = new Agenda("My agenda", "Nanterre");
-		interlocutor = new Interlocutor("Zak", "02020202");
-
+		agenda = Agenda.getInstance("My agenda","Nanterre");
 //		e1Start = new GregorianCalendar(2017, 2, 13, 14, 00);
 //		e1End = new GregorianCalendar(2017, 2, 13, 15, 00);
 //

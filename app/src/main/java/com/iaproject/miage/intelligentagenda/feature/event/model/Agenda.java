@@ -16,10 +16,9 @@ public class Agenda {
 	public  Agenda agenda ;
 	public String titleAgenda;
 	public String basePlace;
-
-
 	public List<Event> listEvent;
 	public Map<Calendar, List<Traject>> courses;
+	public static Agenda instance = null;
 
 
 	private Agenda(String titleAgenda,String basePlace){
@@ -29,14 +28,19 @@ public class Agenda {
 		courses = new HashMap<>();
 	}
 
-	/** Instance unique pré-initialisée */
-	private static Agenda INSTANCE = new Agenda("My agenda", "Nanterre");
-
-
 	/** Point d'accès pour l'instance unique du singleton */
-	public static Agenda getInstance()
-	{	return INSTANCE;
+	public static Agenda getInstance(String titleAgenda,String basePlace) {
+		if(instance == null){
+			return instance = new Agenda(titleAgenda,basePlace);
+		}
+		else return instance;
 	}
+
+
+
+
+
+
 
 	/**
 	 * Permet d'ajouter un évenement dans la liste
