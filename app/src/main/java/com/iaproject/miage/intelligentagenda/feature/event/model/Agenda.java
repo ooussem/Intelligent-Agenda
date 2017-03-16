@@ -44,11 +44,11 @@ public class Agenda {
 	 *          J'ajoute le trajet à ce parcours
 	 */
 	public boolean addEvent(Event event, String keyDate) {
-		if(courses.containsKey(keyDate)){
-			return courses.get(keyDate).addEvent(event);
+		if(courses.containsKey(keyDate.substring(0,8))){
+			return courses.get(keyDate.substring(0,8)).addEvent(event);
 		}
 		else{
-			Course course = addCourse(keyDate);
+			Course course = addCourse(keyDate.substring(0,8));
 			return course.addEvent(event);
 		}
 	}

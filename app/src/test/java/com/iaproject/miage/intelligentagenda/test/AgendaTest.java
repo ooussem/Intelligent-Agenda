@@ -1,6 +1,7 @@
 package com.iaproject.miage.intelligentagenda.test;
 
 import com.iaproject.miage.intelligentagenda.feature.event.model.Agenda;
+import com.iaproject.miage.intelligentagenda.feature.event.model.Course;
 import com.iaproject.miage.intelligentagenda.feature.event.model.Event;
 
 import junit.framework.Assert;
@@ -11,6 +12,7 @@ import org.junit.Test;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by OOussema on 25/02/2017.
@@ -123,11 +125,14 @@ public class AgendaTest {
 		Assert.assertEquals(true,agenda.addEvent(e8,e8.startDate));
 
 
-//		System.out.println("Size = " +agenda.courses.listEvents.size());
-//
-//		for(Event event: agenda.listEvent.subList(0,agenda.listEvent.size())){
-//			System.out.println(event.title+ ", hd = " +event.dateStart.getTime()+ ", he = " +event.dateEnd.getTime());
-//		}
+		System.out.println("Size = " +agenda.courses.size());
+
+		for(Map.Entry<String,Course> course: agenda.courses.entrySet()){
+			System.out.println("\n" +course.getKey()+ " : " +course.getValue().date);
+			for(Event event : course.getValue().listEvents){
+				System.out.println("Event = " +event.title);
+			}
+		}
 	}
 
 
