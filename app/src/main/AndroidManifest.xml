@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.iaproject.miage.intelligentagenda">
 
-    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
 
     <application
         android:allowBackup="true"
@@ -17,13 +17,20 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
-
         <activity android:name=".activity.dayevent.ActivityDay"/>
-        <activity android:name=".activity.authentification.SignUpActivity" />
-        <activity android:name=".activity.Profil.ProfileActivity" />
-        <activity android:name=".activity.authentification.ResetPasswordActivity"></activity>
-
+        <activity android:name=".activity.authentification.SignUpActivity"/>
+        <activity android:name=".activity.Profil.ProfileActivity"/>
+        <activity android:name=".activity.authentification.ResetPasswordActivity"/>
+        <activity android:name=".activity.home.HomeActivity">
+        </activity>
+        <activity android:name=".activity.dayevent.AddEventActivity">
+        </activity>
+        <activity android:name=".activity.dayevent.PlanningActivity">
+        </activity>
+        <activity android:name=".activity.dayevent.EventActivity">
+        </activity>
+        <activity android:name=".activity.dayevent.DayActivity">
+        </activity>
     </application>
 
 </manifest>

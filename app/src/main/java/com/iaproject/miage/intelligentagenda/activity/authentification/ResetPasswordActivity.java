@@ -8,12 +8,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.iaproject.miage.intelligentagenda.R;
-import com.iaproject.miage.intelligentagenda.dao.DAOAuthetification;
+import com.iaproject.miage.intelligentagenda.dao.DAOAuthentification;
 
 
 public class ResetPasswordActivity extends AppCompatActivity {
 
-    DAOAuthetification daoAuthetification = new DAOAuthetification(this);
+    DAOAuthentification daoAuthentification = new DAOAuthentification(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +35,8 @@ public class ResetPasswordActivity extends AppCompatActivity {
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String email = inputEmail.getText().toString().trim();
-                daoAuthetification.resetPassword(email);
-
-
+                daoAuthentification.resetPassword(email);
             }
         });
 

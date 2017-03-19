@@ -15,16 +15,15 @@ public class Agenda {
 	public static Agenda instance = null;
 
 
-	private Agenda(String titleAgenda,String basePlace){
-		this.titleAgenda = titleAgenda;
+	private Agenda(String basePlace) {
 		this.basePlace = basePlace;
 		this.courses = new HashMap<>();
 	}
 
 	/** Point d'accès pour l'instance unique du singleton */
-	public static Agenda getInstance(String titleAgenda,String basePlace) {
+	public static Agenda getInstance(String basePlace) {
 		if(instance == null){
-			return instance = new Agenda(titleAgenda,basePlace);
+			return instance = new Agenda(basePlace);
 		}
 		else return instance;
 	}
@@ -58,7 +57,7 @@ public class Agenda {
 	 * @param keyDate de type string qui est une date sous format ddMMyyyy
 	 * @return vrai si l'ajout s'est bien eéffectué
 	 */
-	public Course addCourse(String keyDate){
+	public Course addCourse(String keyDate) {
 		Course course = new Course(keyDate);
 		this.courses.put(keyDate, course);
 		return course;

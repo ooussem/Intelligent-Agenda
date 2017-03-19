@@ -1,5 +1,6 @@
 package com.iaproject.miage.intelligentagenda.activity.authentification;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,15 +13,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.iaproject.miage.intelligentagenda.R;
-import com.iaproject.miage.intelligentagenda.dao.DAOAuthetification;
 
+import com.iaproject.miage.intelligentagenda.service.ServiceDatabase;
 
 
 public class LoginActivity extends AppCompatActivity {
     public Context context = this;
+	public Activity activity = this;
     public Intent intent = null;
     public static final String KEY_PARAM1 = "KEY_PARAM1";
-    DAOAuthetification daoAuthetification = new DAOAuthetification(this);
+
 
 
     @Override
@@ -49,7 +51,6 @@ public class LoginActivity extends AppCompatActivity {
                 String email = editTextMail.getText().toString().trim();
                 String password = editTextPasword.getText().toString().trim();
 	            boolean isComplete = true;
-
 	            if (TextUtils.isEmpty(password) && TextUtils.isEmpty(email)) {
 		            Toast.makeText(getApplicationContext(), "Veuillez rentrer votre mail et votre mot de passe SVP", Toast.LENGTH_SHORT).show();
 		            isComplete = false;
@@ -66,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 	            if(isComplete){
-		            daoAuthetification.userLogin(email,password);
+		            ServiceDatabase.login(activity, email,password);
 	            }
 
             }

@@ -12,11 +12,18 @@ public class Course {
 	public String date;
 	public List<Event> listEvents;
 
+	public Course() {
+		listEvents = new ArrayList<>();
+	}
+
 	public Course(String date) {
 		this.date = date;
 		listEvents = new ArrayList<>();
 	}
-
+	public Course(String date, List<Event> list) {
+		this.date = date;
+		listEvents = list;
+	}
 
 	/**
 	 * Permet d'ajouter un évenement dans la liste
@@ -52,6 +59,8 @@ public class Course {
 		}
 		return result;
 	}
+
+
 
 	/**
 	 * Vérifie si deux évenements ne sont pas parallèles
@@ -107,5 +116,11 @@ public class Course {
 	}
 
 
+	public List<Event> getListEvents() {
+		return listEvents;
+	}
 
+	public void setListEvents(List<Event> listEvents) {
+		this.listEvents = listEvents;
+	}
 }

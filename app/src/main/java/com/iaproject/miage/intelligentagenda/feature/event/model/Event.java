@@ -27,13 +27,15 @@ public class Event implements Comparable<Event>{
 	@Exclude
 	public SimpleDateFormat sdf;
 
-
+	public Event() {
+	}
 
 	public Event(String title, String place, String startDate, String endDate, String description,
-	             Boolean isDateStartStrongness,Boolean isDateEndStrongness,String transportMode)
+	             Boolean isDateStartStrongness, Boolean isDateEndStrongness, String transportMode)
 			throws AddEventException, ParseException {
 
-		sdf = new SimpleDateFormat("ddMMyyyyHH:mm", Locale.FRANCE);
+		sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.FRANCE);
+
 		this.title = title;
 		this.place = place;
 		this.description = description;
@@ -57,10 +59,8 @@ public class Event implements Comparable<Event>{
 	public Event(String title, String place, String startDate, String endDate, String description,
 	             Boolean isDateStartStrongness,Boolean isDateEndStrongness)
 			throws AddEventException, ParseException {
-
-		this( title, place,startDate, endDate, description,isDateStartStrongness, isDateEndStrongness,"");
+		this(title, place,startDate, endDate, description,isDateStartStrongness, isDateEndStrongness,"");
 	}
-
 
 
 	@Override

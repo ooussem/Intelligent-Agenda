@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_add_event"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.iaproject.miage.intelligentagenda.activity.dayevent.AddEventActivity">
+
+
+
+    <EditText
+        android:id="@+id/activity_add_event_edit_place"
+        android:hint="Entrez le lieu de destination"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="61dp">
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/activity_add_event_edit_title"
+        android:hint="Entrez votre titre"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/activity_add_event_edit_description"
+        android:textAlignment="center"
+        android:hint="Entrez votre description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginTop="28dp"
+        android:layout_below="@+id/activity_add_event_edit_place"
+        android:layout_alignParentStart="true">
+        <requestFocus />
+    </EditText>
+
+
+    <Button
+        android:text="Ajouter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/activity_add_event_ok"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:text="date de début"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/activity_add_event_date_start"
+        android:layout_below="@+id/activity_add_event_edit_description"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="18dp"/>
+
+    <TextView
+        android:text="date de fin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/activity_add_event_date_end"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:text="heure de début"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/activity_add_event_time_start"
+        android:layout_alignBaseline="@+id/activity_add_event_date_start"
+        android:layout_alignBottom="@+id/activity_add_event_date_start"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:text="heure de fin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/activity_add_event_time_end"
+        android:layout_alignBaseline="@+id/activity_add_event_date_end"
+        android:layout_alignBottom="@+id/activity_add_event_date_end"
+        android:layout_alignStart="@+id/activity_add_event_time_start"/>
+
+    <CheckBox
+        android:text="Date de début faible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/activity_add_event_checkbox_start"
+        android:layout_below="@+id/activity_add_event_date_end"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="21dp"/>
+
+    <CheckBox
+        android:text="Date de fin faible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/activity_add_event_checkbox_end"
+        android:layout_alignTop="@+id/activity_add_event_checkbox_start"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp"/>
+
+    <EditText
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/activity_add_event_transport_mode"
+        android:hint="Mode de transport"
+        android:layout_width="200dp"
+        android:layout_marginTop="29dp"
+        android:layout_below="@+id/activity_add_event_checkbox_start"
+        android:layout_alignEnd="@+id/activity_add_event_time_end"/>
+
+</RelativeLayout>
