@@ -1,8 +1,6 @@
 # Intelligent-Agenda
 ANDROID PROJECT MIAGE - 2017
 
-https://ooussem.github.io/Intelligent-Agenda/
-
 
 Intelligent Agenda est une application Android qui permet d'enregistrer vos évenements en indiquant
 leur mode de transport afin que l'application optimise au mieux votre temps trajet en vous indiquant le meilleurs itinéraire ou chemin.
