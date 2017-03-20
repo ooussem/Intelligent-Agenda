@@ -13,6 +13,11 @@ et l'application vous proposera le mode de transport avec le temps plus court po
 
 Intelligent Agenda sera disponible prochainement sur Play Store.
 
+Vous pouvez pour l'instant tester l'application en téléchargeant l'apk sur ce lien : 
+https://drive.google.com/open?id=0B1W0ylc5tCNGSVpRaXdLLUJTN0U
+
+Copier, coller le dans votre mémoire android puis installer-le.
+
 
 
 
