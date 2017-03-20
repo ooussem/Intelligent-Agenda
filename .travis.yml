@@ -50,7 +50,6 @@ before_install:
 script:
   - chmod +x ./gradlew
   - ./gradlew build
-  - ./gradlew createDebugCoverageReport
   - ./gradlew connectedAndroidTest coveralls
   - ./gradlew jacocoTestReport coveralls
 
