@@ -13,6 +13,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "android.support.test.runner.AndroidJacocoTestRunner"
     }
     buildTypes {
         debug {
@@ -45,6 +46,9 @@ dependencies {
     compile 'com.android.support:support-v4:25.1.1'
     compile 'com.android.support:recyclerview-v7:25.1.1'
     testCompile 'junit:junit:4.12'
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
 }
 
 // Enable coverage for AndroidTests and UnitTests
@@ -79,7 +83,8 @@ sonarqube {
 
 
 coveralls {
-    jacocoReportPath = "${buildDir}/reports/coverage/debug/report.xml"
+//    jacocoReportPath = "${buildDir}/reports/coverage/debug/report.xml"
+    jacocoReportPath = "${buildDir}/reports/jacoco/jacocoTestReport/jacocoTestReport.xml"
 }
 
 tasks.coveralls {
