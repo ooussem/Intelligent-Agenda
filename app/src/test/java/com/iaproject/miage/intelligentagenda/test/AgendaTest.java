@@ -1,5 +1,7 @@
 package com.iaproject.miage.intelligentagenda.test;
 
+import android.support.annotation.VisibleForTesting;
+
 import com.iaproject.miage.intelligentagenda.feature.event.model.Agenda;
 import com.iaproject.miage.intelligentagenda.feature.event.model.Course;
 import com.iaproject.miage.intelligentagenda.feature.event.model.Event;
@@ -18,33 +20,61 @@ import java.util.Map;
  * Created by OOussema on 25/02/2017.
  */
 
+
 public class AgendaTest {
+	@VisibleForTesting
 	Agenda agenda;
+	@VisibleForTesting
 	Calendar e1Start;
+	@VisibleForTesting
 	Calendar e1End;
+	@VisibleForTesting
 	Calendar e2Start;
+	@VisibleForTesting
 	Calendar e2End;
+	@VisibleForTesting
 	Calendar e3Start;
+	@VisibleForTesting
 	Calendar e3End;
+	@VisibleForTesting
 	Calendar e4Start;
+	@VisibleForTesting
 	Calendar e4End;
+	@VisibleForTesting
 	Calendar e5Start;
+	@VisibleForTesting
 	Calendar e5End;
+	@VisibleForTesting
 	Calendar e6Start;
+	@VisibleForTesting
 	Calendar e6End;
+	@VisibleForTesting
 	Calendar e7Start;
+	@VisibleForTesting
 	Calendar e7End;
+	@VisibleForTesting
 	Calendar e8Start;
+	@VisibleForTesting
 	Calendar e8End;
+	@VisibleForTesting
 	Event e1;
+	@VisibleForTesting
 	Event e2;
+	@VisibleForTesting
 	Event e3;
+	@VisibleForTesting
 	Event e4;
+	@VisibleForTesting
 	Event e5;
+	@VisibleForTesting
 	Event e6;
+	@VisibleForTesting
 	Event e7;
+	@VisibleForTesting
 	Event e8;
+	@VisibleForTesting
 	Event e9;
+	@VisibleForTesting
 	List<Event> eventList;
 
 	@Before

@@ -13,7 +13,7 @@ import com.iaproject.miage.intelligentagenda.dao.DAOAuthentification;
 
 public class ResetPasswordActivity extends AppCompatActivity {
 
-    DAOAuthentification daoAuthentification = new DAOAuthentification(this);
+    private DAOAuthentification daoAuthentification = new DAOAuthentification(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
