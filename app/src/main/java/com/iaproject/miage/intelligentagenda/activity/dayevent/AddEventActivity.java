@@ -16,9 +16,14 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 import com.iaproject.miage.intelligentagenda.R;
 import com.iaproject.miage.intelligentagenda.activity.home.HomeActivity;
+import com.iaproject.miage.intelligentagenda.dao.DAODatabase;
 import com.iaproject.miage.intelligentagenda.exception.AddEventException;
+import com.iaproject.miage.intelligentagenda.feature.event.model.Course;
 import com.iaproject.miage.intelligentagenda.feature.event.model.Event;
 import com.iaproject.miage.intelligentagenda.service.ServiceDatabase;
 
@@ -44,10 +49,11 @@ public class AddEventActivity extends AppCompatActivity {
 	ServiceDatabase serviceDatabase;
 	private boolean isAllFinished = false;
 	public Event event;
-	String titleAgenda = null;
 	Intent intentFromHomeActivity;
 	StringBuilder start;
 	StringBuilder end;
+	int resultAddEvent = 0;
+
 
 
 
@@ -56,6 +62,7 @@ public class AddEventActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_event);
 		serviceDatabase = new ServiceDatabase();
+
 
 		this.intentFromHomeActivity = getIntent();
 //		this.titleAgenda = intentFromHomeActivity.getStringExtra(KEY_INTENT_ACTIVITY_ADD);
@@ -100,6 +107,7 @@ public class AddEventActivity extends AppCompatActivity {
 			}
 		});
 
+
 		final Intent intentToHome = new Intent(getApplicationContext(), HomeActivity.class);
 		validate.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -139,12 +147,73 @@ public class AddEventActivity extends AppCompatActivity {
 						event = new Event(title.getText().toString(), place.getText().toString(),
 								start.toString(), end.toString(), description.getText().toString(), isDateStartStrongness, isDateEndStrongness,
 								transportMode.getText().toString());
-						Log.d("EVENT", start.toString());
 
-						if(serviceDatabase.addEvent(start.toString().replace("/", " ").substring(0,10), event))
-							startActivity(intentToHome);
-						else
-							Toast.makeText(getApplicationContext(), "Cette activité se chevauche avec une autre", Toast.LENGTH_SHORT);
+//						Log.d("event.start", start.toString());
+//                      int resultAddEvent = serviceDatabase.addEvent(start.toString().replace("/", " ").substring(0,10), event);
+
+						final String keyDate = start.toString().replace("/", " ").substring(0,10);
+						final DAODatabase daoDatabase = DAODatabase.getInstance();
+						daoDatabase.databaseReference.child("users").child(daoDatabase.user.getUid()).child("Agenda").child("events")
+								.child(keyDate).addListenerForSingleValueEvent(new ValueEventListener() {
+							@Override
+							public void onDataChange(DataSnapshot dataSnapshot) {
+								Iterable<DataSnapshot> children = dataSnapshot.getChildren();
+								Course course = new Course();
+								for (DataSnapshot snapshot : children) {
+									resultAddEvent=0;
+									Event e = snapshot.getValue(Event.class);
+									Log.d("Event", e.title);
+									try {
+										course.addEvent(new Event(e));
+									} catch (AddEventException e1) {
+										e1.printStackTrace();
+									} catch (ParseException e1) {
+										e1.printStackTrace();
+									}
+									resultAddEvent=2;
+								}
+
+								for (Event e : course.listEvents) {
+									Log.d("Event = ", e.title);
+									Log.d(" Desc =", e.description);
+								}
+
+								if (course.addEvent(event)) {
+									String key = daoDatabase.databaseReference.child("users").child(daoDatabase.user.getUid()).child("Agenda").child("events")
+									.child(keyDate).push().getKey();
+									daoDatabase.databaseReference.child("users").child(daoDatabase.user.getUid()).child("Agenda")
+									.child("events")
+									.child(keyDate)
+									.child(key)
+									.setValue(event);
+
+									Log.d("finishedToGetEventsList", String.valueOf(resultAddEvent));
+									Log.d("Add event ", "accepted");
+									Toast.makeText(getApplicationContext(), "Evenement ajouté", Toast.LENGTH_SHORT).show();
+									startActivity(intentToHome);
+								}
+
+								else {
+									Log.d("Add event ","refused");
+									Toast.makeText(getApplicationContext(), "Cet événement se chevauche avec une autre", Toast.LENGTH_SHORT).show();
+								}
+
+							}
+
+							@Override
+							public void onCancelled(DatabaseError databaseError) {
+
+							}
+						});
+
+
+
+
+
+
+
+
+
 
 //						Toast.makeText(getApplicationContext(), "Problème d'accès à la base de donnée", Toast.LENGTH_SHORT);
 
@@ -164,8 +233,6 @@ public class AddEventActivity extends AppCompatActivity {
 					e.printStackTrace();
 					Toast.makeText(getApplicationContext(), "Mauvais parsage de la date", Toast.LENGTH_SHORT).show();
 					isAllFinished = false;
-				}finally {
-
 				}
 			}
 		});

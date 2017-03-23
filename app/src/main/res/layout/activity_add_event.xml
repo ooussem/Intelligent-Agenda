@@ -12,6 +12,16 @@
     tools:context="com.iaproject.miage.intelligentagenda.activity.dayevent.AddEventActivity">
 
 
+    <EditText
+        android:id="@+id/activity_add_event_edit_title"
+        android:hint="Entrez votre titre"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+    </EditText>
 
     <EditText
         android:id="@+id/activity_add_event_edit_place"
@@ -23,22 +33,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="61dp">
-
-        <requestFocus />
     </EditText>
 
-    <EditText
-        android:id="@+id/activity_add_event_edit_title"
-        android:hint="Entrez votre titre"
-        android:textAlignment="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
-
-        <requestFocus />
-    </EditText>
 
     <EditText
         android:id="@+id/activity_add_event_edit_description"
@@ -50,7 +46,6 @@
         android:layout_marginTop="28dp"
         android:layout_below="@+id/activity_add_event_edit_place"
         android:layout_alignParentStart="true">
-        <requestFocus />
     </EditText>
 
 

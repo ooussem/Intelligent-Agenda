@@ -44,7 +44,6 @@ public class Event implements Comparable<Event>{
 		this.isDateEndStrongness = isDateEndStrongness;
 		this.isDateStartStrongness = isDateStartStrongness;
 		this.transportMode = transportMode;
-
 		Date dd = sdf.parse(startDate);
 		Date de = sdf.parse(endDate);
 		this.dateStart = new GregorianCalendar();
@@ -61,6 +60,11 @@ public class Event implements Comparable<Event>{
 			throws AddEventException, ParseException {
 		this(title, place,startDate, endDate, description,isDateStartStrongness, isDateEndStrongness,"");
 	}
+
+	public Event(Event e)throws AddEventException, ParseException {
+		this(e.title, e.place,e.startDate, e.endDate, e.description,e.isDateStartStrongness, e.isDateEndStrongness,e.description);
+	}
+
 
 
 	@Override

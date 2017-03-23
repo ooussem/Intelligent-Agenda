@@ -40,7 +40,7 @@ public class Course {
 			}
 		}
 		catch (Exception exp){
-
+			exp.printStackTrace();
 		}
 		return result;
 	}
@@ -87,12 +87,14 @@ public class Course {
 				return false;
 			else if(otherEvent.dateStart.after(nextEvent.dateEnd)){
 				result = false;
+				previousEvent = nextEvent;
 				continue;
 			}
 
 			else if(previousEvent.isDateEndStrongness && nextEvent.isDateStartStrongness
 					&& nextEvent.isDateEndStrongness) {
 				result = true;
+				previousEvent = nextEvent;
 				continue;
 			}
 

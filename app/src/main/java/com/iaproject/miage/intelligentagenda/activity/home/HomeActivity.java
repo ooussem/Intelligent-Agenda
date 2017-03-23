@@ -43,6 +43,7 @@ public class HomeActivity extends AppCompatActivity {
 				.setCalendarDisplayMode(CalendarMode.MONTHS)
 				.commit();
 
+
 		materialCalendarView.setOnDateChangedListener(new OnDateSelectedListener() {
 			@Override
 			public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {

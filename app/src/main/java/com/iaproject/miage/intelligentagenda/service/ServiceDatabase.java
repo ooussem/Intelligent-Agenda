@@ -25,8 +25,9 @@ public class ServiceDatabase {
 	 * @param event : Event.
 	 * @param keyDate : String. It's the key to add an event for a particular day.
 	 */
-	public boolean addEvent(String keyDate,Event event){
+	public int addEvent(String keyDate,Event event) {
 		DAODatabase daoDatabase = DAODatabase.getInstance();
+//		while(daoDatabase.finishedToGetEventsList==0) Log.d("boucle", "boucle");
 		return daoDatabase.addEvent(keyDate,event);
 	}
 
