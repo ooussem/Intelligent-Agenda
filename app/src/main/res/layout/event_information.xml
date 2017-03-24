@@ -2,74 +2,71 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/TextViewTitre"
+        android:id="@+id/event_information_title"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         android:textAlignment="center"
         android:text="titre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10" >
-
-        <requestFocus />
-    </TextView>
+        android:textSize="30sp"
+        android:ems="10"/>
 
 
     <TextView
-        android:id="@+id/TextViewPlace"
+        android:id="@+id/event_information_place"
         android:text="place"
         android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10" >
-
-        <requestFocus />
-    </TextView>
+        android:textSize="20sp"
+        android:ems="10"/>
 
 
 
     <TextView
-        android:id="@+id/TextViewDateDebut"
+        android:id="@+id/event_information_start"
         android:text="date debut"
         android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10" >
+        android:textSize="20sp"
+        android:ems="10" />
 
-        <requestFocus />
-    </TextView>
 
 
 
     <TextView
-        android:id="@+id/TextViewDateFin"
+        android:id="@+id/event_information_end"
         android:text="date fin"
         android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10" >
-
-        <requestFocus />
-    </TextView>
+        android:textSize="20sp"
+        android:ems="10"/>
 
 
     <TextView
-        android:id="@+id/TextViewDescription"
+        android:id="@+id/event_information_description"
         android:text="description"
         android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10" >
+        android:textSize="20sp"
+        android:ems="10"/>
 
-        <requestFocus />
-    </TextView>
+    <TextView
+        android:id="@+id/event_information_transport"
+        android:text="transport"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:ems="10"/>
 
-    <ImageButton
-        android:id="@+id/test"
-        android:layout_width="69dp"
-        android:layout_height="match_parent"
-/>
+
 
 
 </LinearLayout>

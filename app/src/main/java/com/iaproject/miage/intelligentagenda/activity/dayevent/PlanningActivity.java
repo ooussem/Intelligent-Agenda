@@ -1,6 +1,5 @@
 package com.iaproject.miage.intelligentagenda.activity.dayevent;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -20,13 +19,14 @@ import com.google.firebase.database.ValueEventListener;
 import com.iaproject.miage.intelligentagenda.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class PlanningActivity extends AppCompatActivity {
-//	List<HashMap<String,Object>> listKey = null;
-//	HashMap<String,Object> mapKey = null;
-//	SimpleAdapter sa = null;
-	Activity activity = this;
+	DatabaseReference databaseReference;
+	FirebaseUser user;
+	ListView listView;
+	ArrayList<String> keys;
+	ArrayAdapter<String> keyAdapter;
+
 
 
 
@@ -34,28 +34,13 @@ public class PlanningActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_planning);
+		databaseReference = FirebaseDatabase.getInstance().getReference();
+		user = FirebaseAuth.getInstance().getCurrentUser();
 
-		final ListView listView = (ListView) findViewById(R.id.activity_planning_list_key_events);
-
-		final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-		final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-		final List<String> keys = new ArrayList<>();
-
-
-
-//		listKey = new ArrayList<>();
-//
-//		String[] from = new String[]{"key"};
-//		int[] to = new int[]{R.id.activity_planning_list_key_events};
-//		sa = new SimpleAdapter(this, listKey, R.layout.list_event, from, to);
-//
-//		listView.setAdapter(sa);
-//		sa.notifyDataSetChanged();
-
-
-
-
+		listView  = (ListView) findViewById(R.id.activity_planning_list_key_events);
+		keys = new ArrayList<>();
+		keyAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, keys);
+		listView.setAdapter(keyAdapter);
 
 		databaseReference.child("users").child(user.getUid()).child("Agenda").child("events")
 				.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -63,26 +48,14 @@ public class PlanningActivity extends AppCompatActivity {
 			public void onDataChange(DataSnapshot dataSnapshot) {
 				Iterable<DataSnapshot> children = dataSnapshot.getChildren();
 				for (DataSnapshot snapshot : children)  {
-					String key = snapshot.getKey();
+					String key = snapshot.getKey().toString();
 					keys.add(key);
 					Log.d("key ", key);
-
-//					mapKey.put("key", key);
-//					listKey.add(mapKey);
-//
-//					listView.setAdapter(sa);
-//					sa.notifyDataSetChanged();
+					keyAdapter.notifyDataSetChanged();
 				}
 				for (String key : keys) {
 					Log.d("key ", key);
 				}
-
-				ArrayAdapter<String> keyAdapter = new ArrayAdapter<String>(activity,
-						android.R.layout.activity_list_item, keys);
-
-				listView.setAdapter(keyAdapter);
-				keyAdapter.notifyDataSetChanged();
-
 
 			}
 
@@ -100,8 +73,7 @@ public class PlanningActivity extends AppCompatActivity {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				Intent intent = new Intent(getApplicationContext(), DayActivity.class);
 
-//				HashMap<String, Object> date = listKey.get(position);
-//				intent.putExtra("KEY_DATE", date.get("key").toString());
+				intent.putExtra("DATE", keys.get(position));
 
 				startActivity(intent);
 			}

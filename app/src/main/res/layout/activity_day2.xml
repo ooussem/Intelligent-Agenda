@@ -12,6 +12,17 @@
     tools:context="com.iaproject.miage.intelligentagenda.activity.dayevent.DayActivity">
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="78dp"
+        android:layout_marginTop="30dp"
+        android:hint="dd/mm/yyyy"
+        android:id="@+id/activity_day2_date"
+        android:textSize="24dp"/>
+
     <ListView
         android:id="@+id/activity_day2_list_view"
         android:layout_width="match_parent"
@@ -23,15 +34,6 @@
 
     </ListView>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="78dp"
-        android:layout_marginTop="30dp"
-        android:hint="dd/mm/yyyy"
-        android:id="@+id/activity_day2_date"
-        android:textSize="24dp"/>
+
 
 </RelativeLayout>
