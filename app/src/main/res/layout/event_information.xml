@@ -1,72 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
     <TextView
         android:id="@+id/event_information_title"
+        android:textColor="#4d3f3f"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        android:textAlignment="center"
-        android:text="titre"
-        android:layout_width="match_parent"
+        android:hint="Titre"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:ems="10"/>
+        android:textSize="20sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:textAlignment="center"/>
 
+
+    <TextView
+        android:id="@+id/event_information_text_lieu"
+        android:textColor="#5f6a6c"
+        android:text="Lieu"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_below="@+id/event_information_title"
+        android:layout_alignStart="@+id/event_information_title"
+        android:layout_marginTop="19dp"/>
 
     <TextView
         android:id="@+id/event_information_place"
-        android:text="place"
-        android:textAlignment="center"
-        android:layout_width="match_parent"
+        android:textColor="#5f6a6c"
+        android:hint="lieu"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:ems="10"/>
-
-
-
-    <TextView
-        android:id="@+id/event_information_start"
-        android:text="date debut"
-        android:textAlignment="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:ems="10" />
-
-
-
-
-    <TextView
-        android:id="@+id/event_information_end"
-        android:text="date fin"
-        android:textAlignment="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:ems="10"/>
-
-
-    <TextView
-        android:id="@+id/event_information_description"
-        android:text="description"
-        android:textAlignment="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:ems="10"/>
+        android:layout_width="250dp"
+        android:layout_alignBaseline="@+id/event_information_text_lieu"
+        android:layout_alignBottom="@+id/event_information_text_lieu"
+        android:layout_alignParentEnd="true"/>
 
     <TextView
         android:id="@+id/event_information_transport"
-        android:text="transport"
-        android:textAlignment="center"
-        android:layout_width="match_parent"
+        android:textColor="#5f6a6c"
+        android:hint="mode de transport"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:ems="10"/>
+        android:layout_below="@+id/event_information_place"
+        android:layout_alignStart="@+id/event_information_place"
+        android:layout_marginTop="19dp"/>
+
+    <TextView
+        android:id="@+id/event_information_text_start"
+        android:textColor="#5f6a6c"
+        android:text="Date début"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/event_information_transport"
+        android:layout_alignStart="@+id/event_information_text_lieu"
+        android:layout_marginTop="12dp"/>
+
+    <TextView
+        android:id="@+id/event_information_text_end"
+        android:textColor="#5f6a6c"
+        android:text="Date fin"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_below="@+id/event_information_text_start"
+        android:layout_alignStart="@+id/event_information_text_start"
+        android:layout_marginTop="11dp"/>
+
+    <TextView
+        android:id="@+id/event_information_start"
+        android:textColor="#5f6a6c"
+        android:text="date de début"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/event_information_text_start"
+        android:layout_alignBottom="@+id/event_information_text_start"
+        android:layout_toEndOf="@+id/event_information_text_start"
+        android:layout_marginStart="14dp"/>
+
+    <TextView
+        android:id="@+id/event_information_end"
+        android:textColor="#5f6a6c"
+        android:text="date fin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_alignBaseline="@+id/event_information_text_end"
+        android:layout_alignBottom="@+id/event_information_text_end"
+        android:layout_alignStart="@+id/event_information_start"/>
+
+    <TextView
+        android:id="@+id/event_information_description"
+        android:textColor="#5f6a6c"
+        android:text="description"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_below="@+id/event_information_text_end"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="23dp"/>
 
 
-
-
-</LinearLayout>
+</RelativeLayout>
