@@ -20,7 +20,7 @@ Cette application utilise le sdk android 25.0.0. Installez le et placez la varia
 Le lien pour télécharger l'android sdk : https://developer.android.com/studio/index.html#dowloads.
 
 Une vidéo tuto pour installer la variable d'environnement :
-https://www.google.fr/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwjTgvC596PSAhUJaRQKHSNiCm0QtwIIJjAA&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DbcOHJwA1FiM&usg=AFQjCNFUhMsxNd6xI5u7PHf5iXyanh71-g
+https://goo.gl/xDq7Yt
 
 
 
