@@ -1,8 +1,6 @@
 # Intelligent-Agenda
 ANDROID PROJECT M1 MIAGE - 2017
 
-https://ooussem.github.io/Intelligent-Agenda/
-
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/53f0e02e3b2447768240d459b4842c8e)](https://www.codacy.com/app/ooussem/Intelligent-Agenda?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ooussem/Intelligent-Agenda&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://travis-ci.org/ooussem/Intelligent-Agenda.svg?branch=master)](https://travis-ci.org/ooussem/Intelligent-Agenda)
 [![Coverage Status](https://coveralls.io/repos/github/ooussem/Intelligent-Agenda/badge.svg?branch=master)](https://coveralls.io/github/ooussem/Intelligent-Agenda?branch=master)
